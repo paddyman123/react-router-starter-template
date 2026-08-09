@@ -1,6 +1,6 @@
 {
 	"$schema": "./node_modules/wrangler/config-schema.json",
-	"name": "react-router-starter-template",
+	"name": "stonematch",
 	"main": "./workers/app.ts",
 	"compatibility_date": "2025-10-08",
 	"compatibility_flags": ["nodejs_compat"],
@@ -8,7 +8,15 @@
 		"enabled": true
 	},
 	"upload_source_maps": true,
+	"keep_vars": true,
 	"vars": {
 		"VALUE_FROM_CLOUDFLARE": "Hello from Cloudflare"
-	}
+	},
+	"secrets_store_secrets": [
+		{
+			"binding": "PIPEDRIVE_API_TOKEN",
+			"store_id": "46a9db78cc604de0b19a7bc6162cc592",
+			"secret_name": "Pipedrive"
+		}
+	]
 }
