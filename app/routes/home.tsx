@@ -14,6 +14,7 @@ export function meta({}: Route.MetaArgs) {
 
 const materials = ["Quartz", "Granite", "Porcelain", "Sintered stone / ceramic", "Not sure yet"];
 const budgets = ["Under £1,500", "£1,500–£2,500", "£2,500–£4,000", "£4,000–£6,000", "£6,000+", "Not sure yet"];
+const PIPEDRIVE_BASE_URL = "https://stonematch.pipedrive.com";
 
 type SecretStoreBinding = { get(): Promise<string> };
 
@@ -42,8 +43,8 @@ async function resolveSecret(value: unknown) {
   return undefined;
 }
 
-async function pipedriveJson(url: string, token: string, body: unknown) {
-  const requestUrl = new URL(url);
+async function pipedriveJson(path: string, token: string, body: unknown) {
+  const requestUrl = new URL(path, PIPEDRIVE_BASE_URL);
   requestUrl.searchParams.set("api_token", token);
 
   const response = await fetch(requestUrl.toString(), {
@@ -82,13 +83,13 @@ export async function action({ request, context }: Route.ActionArgs) {
   }
 
   try {
-    const person = await pipedriveJson("https://api.pipedrive.com/api/v2/persons", token, {
+    const person = await pipedriveJson("/api/v2/persons", token, {
       name,
       emails: [{ value: email, primary: true, label: "work" }],
       phones: [{ value: phone, primary: true, label: "mobile" }],
     });
 
-    const lead = await pipedriveJson("https://api.pipedrive.com/api/v1/leads", token, {
+    const lead = await pipedriveJson("/api/v1/leads", token, {
       title: name,
       person_id: person.id,
     });
@@ -102,7 +103,7 @@ export async function action({ request, context }: Route.ActionArgs) {
       "<br><strong>Source:</strong> StoneMatch.co.uk",
     ].join("");
 
-    await pipedriveJson("https://api.pipedrive.com/api/v1/notes", token, {
+    await pipedriveJson("/api/v1/notes", token, {
       content: note,
       lead_id: lead.id,
       pinned_to_lead_flag: 1,
@@ -116,7 +117,7 @@ export async function action({ request, context }: Route.ActionArgs) {
       const upload = new FormData();
       upload.append("file", file, file.name);
       upload.append("lead_id", String(lead.id));
-      const uploadUrl = new URL("https://api.pipedrive.com/api/v1/files");
+      const uploadUrl = new URL("/api/v1/files", PIPEDRIVE_BASE_URL);
       uploadUrl.searchParams.set("api_token", token);
       const response = await fetch(uploadUrl.toString(), { method: "POST", body: upload });
       if (!response.ok) {
