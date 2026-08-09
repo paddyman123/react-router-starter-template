@@ -125,6 +125,12 @@ export async function action({ request, context }: Route.ActionArgs) {
       }
     }
 
+    console.info("StoneMatch Pipedrive success", {
+      personId: person?.id,
+      leadId: lead?.id,
+      leadTitle: lead?.title ?? name,
+    });
+
     return {
       ok: true,
       message: "Thank you — your enquiry has been received. StoneMatch will review your project and be in touch.",
