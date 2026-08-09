@@ -89,7 +89,7 @@ export async function action({ request, context }: Route.ActionArgs) {
       phones: [{ value: phone, primary: true, label: "mobile" }],
     });
 
-    const lead = await pipedriveJson("/api/v1/leads", token, {
+    const lead = await pipedriveJson("/v1/leads", token, {
       title: name,
       person_id: person.id,
     });
@@ -103,7 +103,7 @@ export async function action({ request, context }: Route.ActionArgs) {
       "<br><strong>Source:</strong> StoneMatch.co.uk",
     ].join("");
 
-    await pipedriveJson("/api/v1/notes", token, {
+    await pipedriveJson("/v1/notes", token, {
       content: note,
       lead_id: lead.id,
       pinned_to_lead_flag: 1,
@@ -117,7 +117,7 @@ export async function action({ request, context }: Route.ActionArgs) {
       const upload = new FormData();
       upload.append("file", file, file.name);
       upload.append("lead_id", String(lead.id));
-      const uploadUrl = new URL("/api/v1/files", PIPEDRIVE_BASE_URL);
+      const uploadUrl = new URL("/v1/files", PIPEDRIVE_BASE_URL);
       uploadUrl.searchParams.set("api_token", token);
       const response = await fetch(uploadUrl.toString(), { method: "POST", body: upload });
       if (!response.ok) {
