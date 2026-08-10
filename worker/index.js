@@ -27,9 +27,9 @@ async function getPipedriveToken(env) {
   return null;
 }
 
-async function pipedrive(path, token, options = {}) {
+async function requestPipedrive(baseUrl, path, token, options = {}) {
   const separator = path.includes("?") ? "&" : "?";
-  const response = await fetch(`https://api.pipedrive.com${path}${separator}api_token=${encodeURIComponent(token)}`, {
+  const response = await fetch(`${baseUrl}${path}${separator}api_token=${encodeURIComponent(token)}`, {
     ...options,
     headers: { "Content-Type": "application/json", ...(options.headers || {}) },
   });
@@ -37,10 +37,17 @@ async function pipedrive(path, token, options = {}) {
   if (!response.ok || body.success === false) {
     const message = body?.error || body?.error_info || body?.message || `Pipedrive request failed (${response.status})`;
     const error = new Error(String(message));
-    error.pipedrive = { path, status: response.status, error: body?.error || null, error_info: body?.error_info || null, message: body?.message || null };
+    error.pipedrive = { baseUrl, path, status: response.status, error: body?.error || null, error_info: body?.error_info || null, message: body?.message || null };
     throw error;
   }
   return body;
+}
+
+async function getCompanyApiBase(token) {
+  const me = await requestPipedrive("https://api.pipedrive.com", "/api/v1/users/me", token, { method: "GET" });
+  const companyDomain = me?.data?.company_domain;
+  if (!companyDomain) throw new Error("Pipedrive did not return a company domain.");
+  return `https://${companyDomain}.pipedrive.com`;
 }
 
 function clean(value, max = 2000) { return String(value ?? "").trim().slice(0, max); }
@@ -69,14 +76,15 @@ export default {
     if (!token) return json({ ok: false, error: "Pipedrive is not configured." }, 503, origin);
 
     try {
-      const personResult = await pipedrive("/api/v2/persons", token, {
+      const apiBase = await getCompanyApiBase(token);
+      const personResult = await requestPipedrive(apiBase, "/api/v2/persons", token, {
         method: "POST",
         body: JSON.stringify({ name, emails: [{ value: email, primary: true, label: "work" }], phones: [{ value: phone, primary: true, label: "mobile" }] }),
       });
       const personId = personResult?.data?.id;
       if (!personId) throw new Error("Pipedrive did not return a person ID.");
 
-      const leadResult = await pipedrive("/api/v1/leads", token, {
+      const leadResult = await requestPipedrive(apiBase, "/api/v1/leads", token, {
         method: "POST",
         body: JSON.stringify({ title: `StoneMatch - ${name} - ${postcode}`, person_id: personId }),
       });
@@ -85,7 +93,7 @@ export default {
 
       const fields = [["Project postcode", data.postcode],["Project type", data.projectType],["Material", data.material],["Style / colour", data.style],["Budget", data.budget],["Timescale", data.timescale],["Measurements / plans", data.measurements],["Existing quote", data.existingQuote],["Best time to call", data.bestTime],["Other notes", data.notes]];
       const noteContent = `<b>StoneMatch website enquiry</b><br><br>${fields.map(([k,v]) => `<b>${escapeHtml(k)}:</b> ${escapeHtml(v) || "—"}`).join("<br>")}`;
-      await pipedrive("/api/v1/notes", token, { method: "POST", body: JSON.stringify({ content: noteContent, lead_id: leadId, pinned_to_lead_flag: 1 }) });
+      await requestPipedrive(apiBase, "/api/v1/notes", token, { method: "POST", body: JSON.stringify({ content: noteContent, lead_id: leadId, pinned_to_lead_flag: 1 }) });
       return json({ ok: true, leadId }, 201, origin);
     } catch (error) {
       console.error(JSON.stringify({ event: "StoneMatch Pipedrive submission failed", message: error?.message || "Unknown error", pipedrive: error?.pipedrive || null }));
