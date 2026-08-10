@@ -9,7 +9,7 @@ export function Header() {
 }
 
 export function Footer() {
-	return <footer><div className="shell footer-inner"><Brand/><p>The right stone. The right supplier. <strong>The right price.</strong></p><span>© 2026 StoneMatch</span></div></footer>;
+	return <footer><div className="shell footer-inner"><Brand/><div className="footer-copy"><p>The right stone. The right supplier. <strong>The right price.</strong></p><div className="footer-links"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div></div><span>© 2026 StoneMatch</span></div></footer>;
 }
 
 export function Page({ children }: { children: ReactNode }) {
