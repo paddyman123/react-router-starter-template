@@ -7,5 +7,12 @@
   "keep_vars": true,
   "observability": {
     "enabled": true
-  }
+  },
+  "secrets_store_secrets": [
+    {
+      "binding": "Pipedrive",
+      "store_id": "46a9db78cc604de0b19a7bc6162cc592",
+      "secret_name": "Pipedrive"
+    }
+  ]
 }
