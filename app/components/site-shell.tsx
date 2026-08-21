@@ -9,7 +9,7 @@ export function Header() {
 }
 
 export function Footer() {
-	return <footer><div className="shell footer-inner"><Brand/><div className="footer-copy"><p>The right stone. The right supplier. <strong>The right price.</strong></p><div className="footer-links"><a href="mailto:enquiries@stonematch.co.uk">enquiries@stonematch.co.uk</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div><p className="legal-note">StoneMatch is a trading name of Deakin Surfaces Ltd, a company registered in England and Wales.</p></div><span>© 2026 StoneMatch</span></div></footer>;
+	return <footer><div className="shell footer-inner"><Brand/><div className="footer-copy"><p>The right stone. The right supplier. <strong>The right price.</strong></p><div className="footer-links"><a href="mailto:enquiries@stonematch.co.uk">enquiries@stonematch.co.uk</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div><p className="legal-note">StoneMatch is a trading name of Deakin Surfaces Limited. Registered in England and Wales. Company number 17413451.</p></div><span>© 2026 StoneMatch</span></div></footer>;
 }
 
 export function Page({ children }: { children: ReactNode }) {
