@@ -3,8 +3,8 @@ import { Welcome } from "../welcome/welcome";
 
 export function meta({}: Route.MetaArgs) {
 	return [
-		{ title: "StoneMatch | The right stone. The right supplier. The right price." },
-		{ name: "description", content: "Tell StoneMatch about your project and we'll match you with the right stone and reputable local suppliers, then help you secure the best combination of product, service and price." },
+		{ title: "StoneMatch | Check Your Worktop Quote Before You Buy" },
+		{ name: "description", content: "Already have a kitchen worktop quote? StoneMatch helps homeowners check the material, specification, supplier and price before committing — or find suitable worktop options from scratch." },
 	];
 }
 
