@@ -6,7 +6,7 @@ const benefits = [
 	["03", "You choose with confidence", "If your existing option looks strong, we'll say so. If we believe there is a better route, we'll show you the alternative."],
 ];
 
-const materials = ["Quartz", "Porcelain", "Granite", "Marble"];
+const materials = ["Quartz", "Porcelain / Sintered Stone", "Marble", "Granite"];
 
 export function Welcome({ message: _message }: { message: string }) {
 	return (
