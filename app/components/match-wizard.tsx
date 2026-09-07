@@ -1,5 +1,9 @@
 import { useMemo, useState } from "react";
 
+declare global {
+ interface Window { fbq?: (...args: unknown[]) => void; }
+}
+
 type MatchData = { postcode:string; projectType:string; material:string; style:string; budget:string; timescale:string; measurements:string; existingQuote:string; name:string; email:string; phone:string; bestTime:string; notes:string; };
 const initialData:MatchData={postcode:"",projectType:"Kitchen worktops",material:"Not sure yet",style:"",budget:"",timescale:"",measurements:"",existingQuote:"",name:"",email:"",phone:"",bestTime:"",notes:""};
 const steps=["Project","Stone","Budget","Quote","Contact"];
@@ -19,6 +23,7 @@ export function MatchWizard(){
    const response=await fetch(LEAD_API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});
    const result=await response.json().catch(()=>({}));
    if(!response.ok||!result.ok)throw new Error(result.error||"Submission failed");
+   window.fbq?.("track", "Lead", { content_name: "StoneMatch enquiry", content_category: data.projectType });
    setSubmitted(true);
   }catch(e){console.error(e);setError("We couldn't send your project just now. Please try again, or email enquiries@stonematch.co.uk.");}
   finally{setSubmitting(false);}
