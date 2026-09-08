@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 export function Brand() {
-	return <a className="brand" href="/" aria-label="StoneMatch home"><span className="brand-mark">SM</span><span><strong>STONE</strong>MATCH<small>STONE SOURCING, SIMPLIFIED.</small></span></a>;
+	return <a className="brand" href="/" aria-label="StoneMatch home"><span className="brand-mark" aria-hidden="true"><span className="sm-top">⌁</span><span className="sm-mid">⌁</span><span className="sm-bottom">⌁</span></span><span><strong>STONE</strong>MATCH<small>BESPOKE STONE. PERFECTLY MATCHED.</small></span></a>;
 }
 
 export function Header() {
@@ -9,7 +9,7 @@ export function Header() {
 }
 
 export function Footer() {
-	return <footer><div className="shell footer-inner"><Brand/><div className="footer-copy"><p>The right stone. The right supplier. <strong>The right price.</strong></p><div className="footer-links"><a href="mailto:enquiries@stonematch.co.uk">enquiries@stonematch.co.uk</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div><p className="legal-note">StoneMatch is a trading name of Deakin Surfaces Limited. Registered in England and Wales. Company number 17413451.</p></div><span>© 2026 StoneMatch</span></div></footer>;
+	return <footer><div className="shell footer-inner"><Brand/><div className="footer-copy"><p>The right stone. The right supplier. <strong>The right price.</strong></p><div className="footer-links"><a href="mailto:enquiries@stonematch.co.uk">enquiries@stonematch.co.uk</a><a href="https://www.instagram.com/stonematchuk/" target="_blank" rel="noreferrer">Instagram</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div><p className="legal-note">StoneMatch is a trading name of Deakin Surfaces Limited. Registered in England and Wales. Company number 17413451.</p></div><span>© 2026 StoneMatch</span></div></footer>;
 }
 
 export function Page({ children }: { children: ReactNode }) {
