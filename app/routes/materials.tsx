@@ -1,0 +1,18 @@
+import { Page } from "../components/site-shell";
+
+const quartzBrands=["Partner Range","Silestone","Eclos","Fugen","Technistone","B Stone","Caesarstone","Worldwide Stone","Nile Quartz","Unistone / BQS"];
+const porcelainBrands=["Partner Range","Dekton","Infinity","Marazzi","Atlas Plan","Uniceramica","Porcelanosa / XTONE"];
+const naturalSuppliers=[
+ ["The Marble & Granite Centre","https://www.themarbleandgranitecentre.co.uk/"],
+ ["Brachot","https://www.brachot.com/"],
+ ["Imperial Stone Group","https://www.imperialstonegroup.com/"],
+ ["Gerald Culliford","https://geraldculliford.co.uk/"],
+ ["Develli","https://develli.co.uk/"]
+];
+export function meta(){return [{title:"Worktop Materials | Quartz, Porcelain, Granite & Marble | StoneMatch"},{name:"description",content:"Explore StoneMatch quartz, porcelain, granite and marble worktops, including our curated Partner Range and leading surface brands."}]}
+export default function Materials(){return <Page>
+ <section className="page-hero"><div className="shell narrow"><p className="eyebrow">Materials, simplified</p><h1>Find the surface that<br/><em>fits your life.</em></h1><p className="lead">Explore our curated Partner Range, leading surface brands and individually selected natural stone — or let the StoneMatch Worktop Matcher narrow it down for you.</p><a className="button gold" href="/worktop-matcher">Find my perfect worktop →</a></div></section>
+ <section className="section light"><div className="shell"><p className="eyebrow dark">Engineered surfaces</p><h2>Explore <em>Quartz.</em></h2><p className="section-intro">From accessible everyday colours to premium marble effects, compare our Partner Range with established quartz brands in one place.</p><div className="brand-grid">{quartzBrands.map((b,i)=><a className={i===0?"brand-tile featured":"brand-tile"} href={i===0?"/materials/quartz/partner-range":"/materials/quartz#brands"} key={b}><small>{i===0?"STONE MATCH CURATED":"QUARTZ"}</small><strong>{b}</strong><span>{i===0?"Contract · Contract Plus · Vital · Essence":"Explore brand →"}</span></a>)}</div></div></section>
+ <section className="section cream-band"><div className="shell"><p className="eyebrow dark">High-performance surfaces</p><h2>Explore <em>Porcelain.</em></h2><p className="section-intro">Beautiful, hard-working surfaces from our Partner Range and leading porcelain and ultra-compact brands.</p><div className="brand-grid">{porcelainBrands.map((b,i)=><a className={i===0?"brand-tile featured":"brand-tile"} href="/materials/porcelain" key={b}><small>{i===0?"STONE MATCH CURATED":"PORCELAIN"}</small><strong>{b}</strong><span>Explore →</span></a>)}</div></div></section>
+ <section className="section dark-section"><div className="shell split"><div><p className="eyebrow">Natural stone</p><h2>Granite & Marble.<br/><em>No two slabs are the same.</em></h2></div><div className="reason-copy"><p>Granite and marble are natural materials. Colour, veining, pattern and price can vary from one block to another, which is exactly what makes each installation unique.</p><p><strong>StoneMatch recommends viewing and reserving the exact slab you want.</strong> Photograph the slab and its block or reference number and send it to your StoneMatch representative. We’ll obtain the exact material cost, coordinate it with the fabricator and ensure the material is inspected on arrival before fabrication.</p><p className="natural-tagline">You choose the exact stone. <strong>We take care of everything else.</strong></p></div></div><div className="shell supplier-links">{naturalSuppliers.map(([n,u])=><a href={u} target="_blank" rel="noreferrer" key={n}>{n}<span>↗</span></a>)}</div></section>
+ </Page>}
