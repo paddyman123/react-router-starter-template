@@ -7,6 +7,7 @@ export default [
 	route("materials", "routes/materials.tsx"),
 	route("materials/quartz/partner-range", "routes/partner-range.tsx"),
 	route("materials/quartz/partner-range/:slug", "routes/partner-colour.tsx"),
+	route("edge-details", "routes/edge-details.tsx"),
 	route("shortlist", "routes/shortlist.tsx"),
 	route("worktop-matcher", "routes/worktop-matcher.tsx"),
 	route("suppliers", "routes/suppliers.tsx"),
