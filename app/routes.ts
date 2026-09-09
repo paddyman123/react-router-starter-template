@@ -6,6 +6,7 @@ export default [
 	route("about", "routes/about.tsx"),
 	route("materials", "routes/materials.tsx"),
 	route("materials/quartz/partner-range", "routes/partner-range.tsx"),
+	route("materials/quartz/partner-range/:slug", "routes/partner-colour.tsx"),
 	route("worktop-matcher", "routes/worktop-matcher.tsx"),
 	route("suppliers", "routes/suppliers.tsx"),
 	route("privacy", "routes/privacy.tsx"),
