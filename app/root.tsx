@@ -11,6 +11,7 @@ import type { Route } from "./+types/root";
 import "./app.css";
 import "./wizard.css";
 import "./launch-fixes.css";
+import "./navigation.css";
 
 export const links: Route.LinksFunction = () => [
 	{ rel: "preconnect", href: "https://fonts.googleapis.com" },
