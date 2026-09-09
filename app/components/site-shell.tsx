@@ -1,17 +1,5 @@
 import type { ReactNode } from "react";
-
-export function Brand() {
-	return <a className="brand" href="/" aria-label="StoneMatch home"><span className="brand-mark" aria-hidden="true"><span className="sm-top">⌁</span><span className="sm-mid">⌁</span><span className="sm-bottom">⌁</span></span><span><strong>STONE</strong>MATCH<small>BESPOKE STONE. PERFECTLY MATCHED.</small></span></a>;
-}
-
-export function Header() {
-	return <header className="site-header"><nav className="nav shell"><Brand/><div className="nav-links"><a href="/materials">Materials</a><a href="/worktop-matcher">Worktop Matcher</a><a className="shortlist-nav" href="/shortlist">Shortlist</a><a href="/how-it-works">How it works</a><a href="/about">About</a><a href="/#enquire">Start my match</a></div></nav></header>;
-}
-
-export function Footer() {
-	return <footer><div className="shell footer-inner"><Brand/><div className="footer-copy"><p>The right stone. The right supplier. <strong>The right price.</strong></p><div className="footer-links"><a href="mailto:enquiries@stonematch.co.uk">enquiries@stonematch.co.uk</a><a href="https://www.instagram.com/stonematchuk/" target="_blank" rel="noreferrer">Instagram</a><a href="/materials">Materials</a><a href="/materials/quartz">Quartz Catalogue</a><a href="/shortlist">Shortlist</a><a href="/worktop-matcher">Worktop Matcher</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div><p className="legal-note">StoneMatch is a trading name of Deakin Surfaces Limited. Registered in England and Wales. Company number 17413451.</p></div><span>© 2026 StoneMatch</span></div></footer>;
-}
-
-export function Page({ children }: { children: ReactNode }) {
-	return <><Header/><main>{children}</main><Footer/></>;
-}
+export function Brand(){return <a className="brand" href="/" aria-label="StoneMatch home"><span className="brand-mark" aria-hidden="true"><span>SM</span></span><span className="brand-copy"><span><strong>STONE</strong>MATCH</span><small className="brand-tagline">SMART QUOTES. BETTER CHOICES.</small></span></a>}
+export function Header(){return <header className="site-header"><nav className="nav shell"><Brand/><div className="nav-links"><a className="materials-tab" href="/materials">Explore Materials</a><a href="/worktop-matcher">Worktop Matcher</a><a className="shortlist-nav" href="/shortlist">Shortlist</a><a href="/how-it-works">How it works</a><a href="/about">About</a><a href="/#enquire">Start my match</a></div></nav></header>}
+export function Footer(){return <footer><div className="shell footer-inner"><Brand/><div className="footer-copy"><p>The right stone. The right supplier. <strong>The right price.</strong></p><div className="footer-links"><a href="mailto:enquiries@stonematch.co.uk">enquiries@stonematch.co.uk</a><a href="https://www.instagram.com/stonematchuk/" target="_blank" rel="noreferrer">Instagram</a><a href="/materials">Explore Materials</a><a href="/materials/quartz">Quartz Catalogue</a><a href="/materials/porcelain">Porcelain Catalogue</a><a href="/shortlist">Shortlist</a><a href="/worktop-matcher">Worktop Matcher</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div><p className="legal-note">StoneMatch is a trading name of Deakin Surfaces Limited. Registered in England and Wales. Company number 17413451.</p></div><span>© 2026 StoneMatch</span></div></footer>}
+export function Page({children}:{children:ReactNode}){return <><Header/><main>{children}</main><Footer/></>}
