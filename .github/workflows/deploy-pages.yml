@@ -29,6 +29,8 @@ jobs:
         run: npm ci
       - name: Build StoneMatch
         run: npm run build
+      - name: Add SPA route fallback
+        run: cp build/client/index.html build/client/404.html
       - name: Add custom domain
         run: echo 'stonematch.co.uk' > build/client/CNAME
       - name: Disable Jekyll
