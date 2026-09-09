@@ -9,6 +9,8 @@ export default [
 	route("materials/quartz/brands/:slug", "routes/quartz-brand.tsx"),
 	route("materials/quartz/partner-range", "routes/partner-range.tsx"),
 	route("materials/quartz/partner-range/:slug", "routes/partner-colour.tsx"),
+	route("materials/porcelain", "routes/porcelain.tsx"),
+	route("materials/porcelain/brands/:slug", "routes/porcelain-brand.tsx"),
 	route("materials/porcelain/partner-range", "routes/partner-porcelain.tsx"),
 	route("edge-details", "routes/edge-details.tsx"),
 	route("shortlist", "routes/shortlist.tsx"),
