@@ -1,4 +1,5 @@
 import { MatchWizard } from "../components/match-wizard";
+import { Brand } from "../components/site-shell";
 
 const benefits = [
 	["01", "Send us what you have", "Already have a quote? Send us the details and we'll help you sense-check the material, specification and price. Starting from scratch? Tell us what you want instead."],
@@ -12,11 +13,11 @@ export function Welcome({ message: _message }: { message: string }) {
 	return (
 		<main>
 			<nav className="nav shell">
-				<a className="brand" href="#top" aria-label="StoneMatch home"><span className="brand-mark">SM</span><span><strong>STONE</strong>MATCH<small>STONE SOURCING, SIMPLIFIED.</small></span></a>
-				<div className="nav-links"><a href="/how-it-works">How it works</a><a href="/about">About</a><a href="/suppliers">For suppliers</a><a href="#enquire">Check my quote</a></div>
+				<Brand/>
+				<div className="nav-links"><a href="/materials">Materials</a><a href="/worktop-matcher">Worktop Matcher</a><a className="shortlist-nav" href="/shortlist">Shortlist</a><a href="/how-it-works">How it works</a><a href="/about">About</a><a href="#enquire">Start my match</a></div>
 			</nav>
 
-			<section id="top" className="hero"><div className="hero-glow"/><div className="shell hero-grid"><div className="hero-copy"><p className="eyebrow">Independent worktop sourcing & quote check</p><h1>Before you buy your worktops.<br/><em>StoneMatch them.</em></h1><p className="lead">Already have a worktop quote? Let us check it before you pay the deposit. Starting from scratch? We'll help you find the right stone and fabricator.</p><p>StoneMatch uses industry knowledge and a network of reputable fabricators to help you make a better-informed choice on material, supplier and price.</p><div className="hero-actions"><a className="button gold" href="#enquire">Check my worktop quote</a><a className="text-link" href="#enquire">Find my worktop <span>→</span></a></div><div className="trust"><span>✓ Free for homeowners</span><span>✓ Reputable fabricators</span><span>✓ No obligation</span></div></div><div className="stone-card"><div className="stone-surface"><div className="vein v1"/><div className="vein v2"/><div className="vein v3"/></div><div className="stone-caption"><small>THE STONEMATCH QUOTE CHECK</small><strong>Got a quote? Check it before you commit.</strong><span>Material · Specification · Fabrication · Price</span></div></div></div></section>
+			<section id="top" className="hero"><div className="hero-glow"/><div className="shell hero-grid"><div className="hero-copy"><p className="eyebrow">Independent worktop sourcing & quote check</p><h1>Before you buy your worktops.<br/><em>StoneMatch them.</em></h1><p className="lead">Already have a worktop quote? Let us check it before you pay the deposit. Starting from scratch? We'll help you find the right stone and fabricator.</p><p>StoneMatch uses industry knowledge and a network of reputable fabricators to help you make a better-informed choice on material, supplier and price.</p><div className="hero-actions"><a className="button gold" href="#enquire">Check my worktop quote</a><a className="text-link" href="/materials">Explore materials <span>→</span></a></div><div className="trust"><span>✓ Free for homeowners</span><span>✓ Reputable fabricators</span><span>✓ No obligation</span></div></div><div className="stone-card"><div className="stone-surface"><div className="vein v1"/><div className="vein v2"/><div className="vein v3"/></div><div className="stone-caption"><small>THE STONEMATCH QUOTE CHECK</small><strong>Got a quote? Check it before you commit.</strong><span>Material · Specification · Fabrication · Price</span></div></div></div></section>
 
 			<section id="how" className="section light"><div className="shell"><p className="eyebrow dark">A smarter way to buy stone</p><h2>One conversation before<br/>you make a <em>big decision.</em></h2><p className="section-intro">Perhaps you've already been quoted. Perhaps you've only saved a kitchen on Instagram. Either way, you don't need to spend hours calling fabricators and trying to compare different specifications yourself.</p><div className="steps">{benefits.map(([n,t,d]) => <article className="step" key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p></article>)}</div></div></section>
 
@@ -26,7 +27,7 @@ export function Welcome({ message: _message }: { message: string }) {
 
 			<section id="enquire" className="section enquiry"><div className="shell enquiry-head"><p className="eyebrow dark">Free StoneMatch quote check</p><h2>Before you commit,<br/><em>wouldn't it make sense to check?</em></h2><p>Already have a quote? Add the supplier, material and price below. Starting from scratch is fine too. It takes around two minutes and there's no obligation.</p></div><div className="shell"><MatchWizard/></div></section>
 
-			<footer><div className="shell footer-inner"><div className="brand"><span className="brand-mark">SM</span><span><strong>STONE</strong>MATCH<small>STONE SOURCING, SIMPLIFIED.</small></span></div><p>Before you buy it. <strong>StoneMatch it.</strong></p><span>© 2026 StoneMatch</span></div></footer>
+			<footer><div className="shell footer-inner"><Brand/><div className="footer-copy"><p>The right stone. The right supplier. <strong>The right price.</strong></p><div className="footer-links"><a href="mailto:enquiries@stonematch.co.uk">enquiries@stonematch.co.uk</a><a href="https://www.instagram.com/stonematchuk/" target="_blank" rel="noreferrer">Instagram</a><a href="/materials">Materials</a><a href="/materials/quartz">Quartz Catalogue</a><a href="/shortlist">Shortlist</a><a href="/worktop-matcher">Worktop Matcher</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div><p className="legal-note">StoneMatch is a trading name of Deakin Surfaces Limited. Registered in England and Wales. Company number 17413451.</p></div><span>© 2026 StoneMatch</span></div></footer>
 		</main>
 	);
 }
