@@ -13,6 +13,8 @@ export default [
 	route("materials/porcelain", "routes/porcelain.tsx"),
 	route("materials/porcelain/brands/:slug", "routes/porcelain-brand.tsx"),
 	route("materials/porcelain/partner-range", "routes/partner-porcelain.tsx"),
+	route("materials/marble", "routes/marble.tsx"),
+	route("materials/granite", "routes/granite.tsx"),
 	route("edge-details", "routes/edge-details.tsx"),
 	route("shortlist", "routes/shortlist.tsx"),
 	route("worktop-matcher", "routes/worktop-matcher.tsx"),
