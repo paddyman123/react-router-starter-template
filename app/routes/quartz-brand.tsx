@@ -3,8 +3,9 @@ import { getQuartzBrand } from "../data/quartz-brands";
 
 type BrandImage={src:string;alt:string;label:string};
 const partnerImages:BrandImage[]=[
- {src:"/quartz/partner-range/white-dove.jpg",alt:"White Dove quartz installed worktop",label:"White Dove · genuine installed project"},
- {src:"/quartz/partner-range/arctic-white.jpg",alt:"Arctic White quartz installed worktop",label:"Arctic White · genuine installed project"}
+ {src:"/quartz/partner-range/white-dove-hero.webp",alt:"White Dove quartz installed worktop",label:"White Dove · genuine installed project"},
+ {src:"/quartz/partner-range/arctic-white.jpg",alt:"Arctic White quartz installed worktop",label:"Arctic White · genuine installed project"},
+ {src:"/quartz/partner-range/arabescato-verde-gallery.webp",alt:"Arabescato Verde quartz installed worktop",label:"Arabescato Verde · genuine installed project"}
 ];
 const inspirationLinks:Record<string,{href:string;label:string}>={
  silestone:{href:"https://www.cosentino.com/en-gb/silestone/",label:"Explore official Silestone imagery"},
