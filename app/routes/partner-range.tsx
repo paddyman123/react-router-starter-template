@@ -6,6 +6,7 @@ const project=(src:string)=>({src,kind:"project" as const,source:"StoneMatch pro
 const catalogueImages:Record<string,CatalogueImage>={
 "White Dove":project("/quartz/partner-range/white-dove-hero.webp"),
 "Calacatta Gold":project("/quartz/partner-range/calacatta-gold-installed.webp"),
+"Lydia Gold":project("/quartz/partner-range/lydia-gold-installed.webp"),
 "Arctic White":project("/quartz/partner-range/arctic-white.jpg"),
 "Arabescato Verde":project("/quartz/partner-range/arabescato-verde-gallery.webp")
 };
