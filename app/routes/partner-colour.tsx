@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Page } from "../components/site-shell";
 import { partnerQuartz } from "../data/partner-range";
 const slugify=(value:string)=>value.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"");
-const verifiedProjectImages:Record<string,string>={"White Dove":"/quartz/partner-range/white-dove-hero.webp","Calacatta Gold":"/quartz/partner-range/calacatta-gold-installed.webp","Arctic White":"/quartz/partner-range/arctic-white.jpg","Arabescato Verde":"/quartz/partner-range/arabescato-verde-gallery.webp"};
+const verifiedProjectImages:Record<string,string>={"White Dove":"/quartz/partner-range/white-dove-hero.webp","Calacatta Gold":"/quartz/partner-range/calacatta-gold-installed.webp","Lydia Gold":"/quartz/partner-range/lydia-gold-installed.webp","Arctic White":"/quartz/partner-range/arctic-white.jpg","Arabescato Verde":"/quartz/partner-range/arabescato-verde-gallery.webp"};
 export function meta({params}:any){const colour=partnerQuartz.find(c=>slugify(c.name)===params.slug);return [{title:`${colour?.name||"Partner Range Quartz"} Quartz Worktop | StoneMatch`},{name:"description",content:colour?`Explore ${colour.name}, a ${colour.tier} quartz in the StoneMatch Partner Range. See design guidance, specifications and request an installed quotation.`:"Explore StoneMatch Partner Range quartz."}]}
 export default function PartnerColour({params}:any){
  const colour=partnerQuartz.find(c=>slugify(c.name)===params.slug);const [saved,setSaved]=useState(false);
