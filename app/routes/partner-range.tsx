@@ -8,7 +8,8 @@ const catalogueImages:Record<string,CatalogueImage>={
 "Calacatta Gold":project("/quartz/partner-range/calacatta-gold-installed.webp"),
 "Lydia Gold":project("/quartz/partner-range/lydia-gold-installed.webp"),
 "Arctic White":project("/quartz/partner-range/arctic-white.jpg"),
-"Arabescato Verde":project("/quartz/partner-range/arabescato-verde-gallery.webp")
+"Arabescato Verde":project("/quartz/partner-range/arabescato-verde-gallery.webp"),
+"London Grey":project("/quartz/partner-range/london-grey-installed.webp")
 };
 const ranges:{name:PartnerTier;tag:string;copy:string;pos:string}[]=[{name:"Contract",tag:"Simple. Versatile. Exceptional value.",copy:"An accessible collection of soft, easy-to-use colours designed to work beautifully across a wide range of kitchens.",pos:"Everyday simplicity"},{name:"Contract Plus",tag:"Popular designs. Excellent value.",copy:"Fast-moving colours chosen for customers who want current, versatile designs with an excellent balance of style and value.",pos:"Popular favourites"},{name:"Vital",tag:"Beautiful marble-inspired surfaces.",copy:"Popular marble effects with more distinctive movement and veining — ideal when you want the worktop to become part of the design.",pos:"Marble inspired"},{name:"Essence",tag:"Statement surfaces for exceptional spaces.",copy:"Our high-end collection of premium marble effects and statement designs for kitchens where the surface deserves to take centre stage.",pos:"Premium collection"}];
 const rangeId=(name:PartnerTier)=>slugify(name);
