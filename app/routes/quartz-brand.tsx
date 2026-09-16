@@ -4,6 +4,9 @@ import { getQuartzBrand } from "../data/quartz-brands";
 type BrandImage={src:string;alt:string;label:string};
 const partnerImages:BrandImage[]=[
  {src:"/quartz/partner-range/white-dove-hero.webp",alt:"White Dove quartz installed worktop",label:"White Dove · genuine installed project"},
+ {src:"/quartz/partner-range/calacatta-gold-installed.webp",alt:"Calacatta Gold quartz installed worktop",label:"Calacatta Gold · genuine installed project"},
+ {src:"/quartz/partner-range/lydia-gold-installed.webp",alt:"Lydia Gold quartz installed worktop",label:"Lydia Gold · genuine installed project"},
+ {src:"/quartz/partner-range/london-grey-installed.webp",alt:"London Grey quartz installed worktop",label:"London Grey · genuine installed project"},
  {src:"/quartz/partner-range/arctic-white.jpg",alt:"Arctic White quartz installed worktop",label:"Arctic White · genuine installed project"},
  {src:"/quartz/partner-range/arabescato-verde-gallery.webp",alt:"Arabescato Verde quartz installed worktop",label:"Arabescato Verde · genuine installed project"}
 ];
