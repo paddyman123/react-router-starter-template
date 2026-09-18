@@ -4,7 +4,7 @@ const slugify=(value:string)=>value.toLowerCase().replace(/[^a-z0-9]+/g,"-").rep
 type CatalogueImage={src:string;kind:"project"|"slab";source:string};
 const project=(src:string)=>({src,kind:"project" as const,source:"StoneMatch project photography"});
 const catalogueImages:Record<string,CatalogueImage>={
-"White Dove":project("/quartz/partner-range/white-dove-hero.webp"),
+"White Dove":project("/quartz/partner-range/white-dove.jpg"),
 "Calacatta Gold":project("/quartz/partner-range/calacatta-gold-installed.webp"),
 "Lydia Gold":project("/quartz/partner-range/lydia-gold-installed.webp"),
 "Arctic White":project("/quartz/partner-range/arctic-white.jpg"),
