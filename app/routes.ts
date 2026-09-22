@@ -1,27 +1,4 @@
 import { type RouteConfig, index, route } from "@react-router/dev/routes";
-
 export default [
-	index("routes/home.tsx"),
-	route("how-it-works", "routes/how-it-works.tsx"),
-	route("why-stonematch", "routes/why-stonematch.tsx"),
-	route("about", "routes/about.tsx"),
-	route("materials", "routes/materials.tsx"),
-	route("materials/quartz", "routes/quartz.tsx"),
-	route("materials/quartz/brands/:slug", "routes/quartz-brand.tsx"),
-	route("materials/quartz/partner-range", "routes/partner-range.tsx"),
-	route("materials/quartz/partner-range/:slug", "routes/partner-colour.tsx"),
-	route("materials/porcelain", "routes/porcelain.tsx"),
-	route("materials/porcelain/brands/:slug", "routes/porcelain-brand.tsx"),
-	route("materials/porcelain/partner-range", "routes/partner-porcelain.tsx"),
-	route("materials/marble", "routes/marble.tsx"),
-	route("materials/granite", "routes/granite.tsx"),
-	route("guides/check-my-worktop-quote", "routes/check-worktop-quote.tsx"),
-	route("guides/quartz-vs-porcelain-worktops", "routes/quartz-vs-porcelain.tsx"),
-	route("guides/quartz-worktop-prices", "routes/quartz-worktop-prices.tsx"),
-	route("edge-details", "routes/edge-details.tsx"),
-	route("shortlist", "routes/shortlist.tsx"),
-	route("worktop-matcher", "routes/worktop-matcher.tsx"),
-	route("suppliers", "routes/suppliers.tsx"),
-	route("privacy", "routes/privacy.tsx"),
-	route("terms", "routes/terms.tsx"),
+ index("routes/home.tsx"), route("how-it-works","routes/how-it-works.tsx"), route("why-stonematch","routes/why-stonematch.tsx"), route("about","routes/about.tsx"), route("materials","routes/materials.tsx"), route("materials/quartz","routes/quartz.tsx"), route("materials/quartz/brands/:slug","routes/quartz-brand.tsx"), route("materials/quartz/partner-range","routes/partner-range.tsx"), route("materials/quartz/partner-range/:slug","routes/partner-colour.tsx"), route("materials/porcelain","routes/porcelain.tsx"), route("materials/porcelain/brands/:slug","routes/porcelain-brand.tsx"), route("materials/porcelain/partner-range","routes/partner-porcelain.tsx"), route("materials/marble","routes/marble.tsx"), route("materials/granite","routes/granite.tsx"), route("guides/check-my-worktop-quote","routes/check-worktop-quote.tsx"), route("quote-check","routes/paid-quote-check.tsx"), route("guides/quartz-vs-porcelain-worktops","routes/quartz-vs-porcelain.tsx"), route("guides/quartz-worktop-prices","routes/quartz-worktop-prices.tsx"), route("edge-details","routes/edge-details.tsx"), route("shortlist","routes/shortlist.tsx"), route("worktop-matcher","routes/worktop-matcher.tsx"), route("suppliers","routes/suppliers.tsx"), route("privacy","routes/privacy.tsx"), route("terms","routes/terms.tsx")
 ] satisfies RouteConfig;
