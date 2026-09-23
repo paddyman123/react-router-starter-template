@@ -5,7 +5,12 @@ type CatalogueImage={src:string;kind:"project"|"slab";source:string};
 const project=(src:string)=>({src,kind:"project" as const,source:"StoneMatch project photography"});
 const imageLabel=(image:CatalogueImage)=>image.kind==="slab"?"APPROVED SLAB IMAGE":"GENUINE INSTALLED PROJECT";
 const catalogueImages:Record<string,CatalogueImage>={
+"Bianco Galaxy":{src:"/quartz/partner-range/bianco-galaxy-details-2.jpg",kind:"slab",source:"StoneMatch approved photography"},
 "White Dove":project("/quartz/partner-range/white-dove.jpg"),
+"Bianco Shimmer":{src:"/quartz/partner-range/bianco-shimmer-2.jpg",kind:"slab",source:"StoneMatch approved photography"},
+"Super White":{src:"/quartz/partner-range/super-white-1.jpg",kind:"slab",source:"StoneMatch approved photography"},
+"Snow White":{src:"/quartz/partner-range/snow-white-details.jpg",kind:"slab",source:"StoneMatch approved photography"},
+"Misterio Oro":{src:"/quartz/partner-range/misterio-oro-2.jpg",kind:"slab",source:"StoneMatch approved photography"},
 "Calacatta Gold":project("/quartz/partner-range/calacatta-gold-installed.webp"),
 "Lydia Gold":project("/quartz/partner-range/lydia-gold-installed.webp"),
 "Arctic White":project("/quartz/partner-range/arctic-white.jpg"),
