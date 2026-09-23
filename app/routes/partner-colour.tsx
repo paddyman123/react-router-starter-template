@@ -4,13 +4,18 @@ import { partnerQuartz } from "../data/partner-range";
 const slugify=(value:string)=>value.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"");
 type ColourImages={slab?:string;installations:string[]};
 const colourImages:Record<string,ColourImages>={
-"White Dove":{installations:["/quartz/partner-range/white-dove.jpg"]},
+"Bianco Galaxy":{slab:"/quartz/partner-range/bianco-galaxy-details-2.jpg",installations:["/quartz/partner-range/bianco-galaxy-2.jpg"]},
+"White Dove":{slab:"/quartz/partner-range/carrara-cashmere-2.jpg",installations:["/quartz/partner-range/white-dove.jpg","/quartz/partner-range/carrara-cashmere-fitted-1.jpg","/quartz/partner-range/carrara-cashmere-3.jpg","/quartz/partner-range/carrara-cashmere-4.jpg"]},
+"Bianco Shimmer":{slab:"/quartz/partner-range/bianco-shimmer-2.jpg",installations:["/quartz/partner-range/bianco-shimmer-2-2.jpg"]},
+"Super White":{slab:"/quartz/partner-range/super-white-1.jpg",installations:["/quartz/partner-range/super-white-2.jpg","/quartz/partner-range/super-white-3.jpg"]},
+"Snow White":{slab:"/quartz/partner-range/snow-white-details.jpg",installations:["/quartz/partner-range/snow-white-2.jpg","/quartz/partner-range/snow-white-fitted-2.jpg"]},
 "Calacatta Gold":{installations:["/quartz/partner-range/calacatta-gold-installed.webp"]},
 "Lydia Gold":{installations:["/quartz/partner-range/lydia-gold-installed.webp"]},
 "London Grey":{installations:["/quartz/partner-range/london-grey-installed.webp"]},
 "Arctic White":{installations:["/quartz/partner-range/arctic-white.jpg"]},
-"Arabescato Verde":{installations:["/quartz/partner-range/arabescato-verde-gallery.webp"]}
-};
+"Arabescato Verde":{installations:["/quartz/partner-range/arabescato-verde-gallery.webp"]},
+"Misterio Oro":{slab:"/quartz/partner-range/misterio-oro-2.jpg",installations:["/quartz/partner-range/misterio-oro-fitted.jpg"]}
+}
 export function meta({params}:any){const colour=partnerQuartz.find(c=>slugify(c.name)===params.slug);return [{title:`${colour?.name||"Partner Range Quartz"} Quartz Worktop | StoneMatch`},{name:"description",content:colour?`Explore ${colour.name}, a ${colour.tier} quartz in the StoneMatch Partner Range. See design guidance, specifications and request an installed quotation.`:"Explore StoneMatch Partner Range quartz."}]}
 export default function PartnerColour({params}:any){
  const colour=partnerQuartz.find(c=>slugify(c.name)===params.slug);const [saved,setSaved]=useState(false);
