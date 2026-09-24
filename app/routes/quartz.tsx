@@ -1,7 +1,7 @@
 import { Page } from "../components/site-shell";
 import { quartzBrands } from "../data/quartz-brands";
 
-export function meta(){return [{title:"Quartz Worktops & Brands | StoneMatch"},{name:"description",content:"Compare StoneMatch Partner Range quartz with Silestone, Caesarstone, Technistone and other quartz brands. StoneMatch helps match the right surface, supplier and installed value."}]}
+export function meta(){return [{title:"Quartz Worktops & Brands | StoneMatch"},{name:"description",content:"Explore quartz worktops and leading brands, then let StoneMatch compare suitable supply, fabrication and installation routes to find better value."}]}
 
 export default function QuartzCatalogue(){return <Page>
  <section className="page-hero quartz-hero"><div className="shell narrow"><p className="eyebrow">StoneMatch Quartz Catalogue</p><h1>Find the quartz you love.<br/><em>Then pay the right price.</em></h1><p className="lead">Quartz should not be a choice between hundreds of names on a screen. Start with our curated Partner Range or explore recognised brands, then let StoneMatch compare the surface, specification, fabrication and installed value.</p><div className="hero-actions"><a className="button gold" href="/materials/quartz/partner-range">Explore Partner Range →</a><a className="text-link light-link" href="/worktop-matcher">Not sure? Use the Worktop Matcher →</a></div></div></section>
