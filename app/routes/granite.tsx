@@ -10,7 +10,7 @@ const suppliers=[
 
 export function meta(){return [
  {title:"Granite Worktops | Natural Stone | StoneMatch"},
- {name:"description",content:"Explore granite worktops with StoneMatch. Compare natural slabs, finishes, practical considerations and the complete templated, fabricated and installed option."}
+ {name:"description",content:"Explore granite worktops, natural slabs and finishes, then let StoneMatch look for a better-value fabrication and installation route."}
 ]}
 
 export default function Granite(){return <Page>
