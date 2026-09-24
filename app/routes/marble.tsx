@@ -10,7 +10,7 @@ const suppliers=[
 
 export function meta(){return [
  {title:"Marble Worktops | Natural Stone | StoneMatch"},
- {name:"description",content:"Explore marble worktops with StoneMatch. Understand finishes, care, slab selection and how we compare the complete templated, fabricated and installed option."}
+ {name:"description",content:"Explore marble worktops, exact-slab selection and care, then let StoneMatch look for a better-value fabrication and installation route."}
 ]}
 
 export default function Marble(){return <Page>
