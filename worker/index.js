@@ -26,7 +26,9 @@ async function getPipedriveToken(env) {
 
 async function requestPipedrive(baseUrl, path, token, options = {}) {
   const separator = path.includes("?") ? "&" : "?";
-  const response = await fetch(`${baseUrl}${path}${separator}api_token=${encodeURIComponent(token)}`, { ...options, headers: { "Content-Type": "application/json", ...(options.headers || {}) } });
+  const headers = { ...(options.headers || {}) };
+  if (!(options.body instanceof FormData)) headers["Content-Type"] = "application/json";
+  const response = await fetch(`${baseUrl}${path}${separator}api_token=${encodeURIComponent(token)}`, { ...options, headers });
   const body = await response.json().catch(() => ({}));
   if (!response.ok || body.success === false) {
     const message = body?.error || body?.error_info || body?.message || `Pipedrive request failed (${response.status})`;
@@ -58,7 +60,18 @@ export default {
     if (request.method !== "POST" || url.pathname !== "/api/lead") return json({ ok: false, error: "Not found" }, 404, origin);
     if (origin && !ALLOWED_ORIGINS.has(origin)) return json({ ok: false, error: "Origin not allowed" }, 403, origin);
 
-    let data; try { data = await request.json(); } catch { return json({ ok: false, error: "Invalid request" }, 400, origin); }
+    let data, files = [];
+    try {
+      if ((request.headers.get("Content-Type") || "").includes("multipart/form-data")) {
+        const form = await request.formData();
+        const raw = form.get("data");
+        data = JSON.parse(typeof raw === "string" ? raw : "{}");
+        files = form.getAll("files").filter(v => v instanceof File && v.size > 0);
+      } else data = await request.json();
+    } catch { return json({ ok: false, error: "Invalid request" }, 400, origin); }
+    if (files.length > 5 || files.some(f => f.size > 10 * 1024 * 1024)) return json({ ok: false, error: "Please upload no more than 5 files, with each file under 10MB." }, 400, origin);
+    const allowedTypes = new Set(["application/pdf","image/jpeg","image/png","image/webp"]);
+    if (files.some(f => !allowedTypes.has(f.type))) return json({ ok: false, error: "Uploads must be PDF, JPG, PNG or WEBP files." }, 400, origin);
     const name = clean(data.name, 160), email = clean(data.email, 254), phone = clean(data.phone, 80), postcode = clean(data.postcode, 20);
     if (!name || !email || !phone || !postcode) return json({ ok: false, error: "Name, email, phone and postcode are required." }, 400, origin);
     const token = await getPipedriveToken(env); if (!token) return json({ ok: false, error: "Pipedrive is not configured." }, 503, origin);
@@ -78,7 +91,13 @@ export default {
       ];
       const noteContent = `<b>StoneMatch website enquiry</b><br><br>${fields.map(([k,v]) => `<b>${escapeHtml(k)}:</b> ${escapeHtml(v) || "—"}`).join("<br>")}`;
       await requestPipedrive(apiBase, "/api/v1/notes", token, { method: "POST", body: JSON.stringify({ content: noteContent, lead_id: leadId, pinned_to_lead_flag: 1 }) });
-      return json({ ok: true, leadId }, 201, origin);
+      for (const file of files) {
+        const upload = new FormData();
+        upload.append("file", file, file.name);
+        upload.append("lead_id", String(leadId));
+        await requestPipedrive(apiBase, "/api/v1/files", token, { method: "POST", body: upload });
+      }
+      return json({ ok: true, leadId, filesUploaded: files.length }, 201, origin);
     } catch (error) {
       console.error(JSON.stringify({ event: "StoneMatch Pipedrive submission failed", message: error?.message || "Unknown error", pipedrive: error?.pipedrive || null }));
       return json({ ok: false, error: "We couldn't save your enquiry right now. Please try again." }, 502, origin);
