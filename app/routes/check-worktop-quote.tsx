@@ -8,7 +8,7 @@ export default function CheckWorktopQuote(){return <Page>
 <p className="eyebrow">Your StoneMatch Saving</p>
 <h1>Already got a worktop quote?<br/><em>See if we can beat the value.</em></h1>
 <p className="lead">Send us what you've been quoted. We'll compare suitable routes for the stone, specification, fabrication and installation and show you if there is a better-value option.</p>
-<a className="button gold" href="#check-my-quote">See how much I could save →</a>
+<a className="button gold" href="#check-my-quote">£ See how much I can save →</a>
 <div className="trust"><span>✓ Free for homeowners</span><span>✓ No obligation</span><span>✓ Clear, like-for-like comparison</span></div>
 </div></section>
 
