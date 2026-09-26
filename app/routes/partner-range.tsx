@@ -6,15 +6,15 @@ const project=(src:string)=>({src,kind:"project" as const,source:"StoneMatch pro
 const imageLabel=(image:CatalogueImage)=>image.kind==="slab"?"APPROVED SLAB IMAGE":"GENUINE INSTALLED PROJECT";
 const catalogueImages:Record<string,CatalogueImage>={
 "Bianco Galaxy":{src:"/quartz/partner-range/bianco-galaxy-details-2.jpg",kind:"slab",source:"StoneMatch approved photography"},
-"White Dove":project("/quartz/partner-range/white-dove.jpg"),
+"White Dove":project("/quartz/partner-range/white-dove-installed-1.jpg"),
 "Bianco Shimmer":{src:"/quartz/partner-range/bianco-shimmer-2.jpg",kind:"slab",source:"StoneMatch approved photography"},
 "Super White":{src:"/quartz/partner-range/super-white-1.jpg",kind:"slab",source:"StoneMatch approved photography"},
 "Snow White":{src:"/quartz/partner-range/snow-white-details.jpg",kind:"slab",source:"StoneMatch approved photography"},
 "Misterio Oro":{src:"/quartz/partner-range/misterio-oro-2.jpg",kind:"slab",source:"StoneMatch approved photography"},
-"Calacatta Gold":project("/quartz/partner-range/calacatta-gold-installed.webp"),
+"Calacatta Gold":project("/quartz/partner-range/calacatta-gold-installed-5.webp"),
 "Lydia Gold":project("/quartz/partner-range/lydia-gold-installed.webp"),
 "Arctic White":project("/quartz/partner-range/arctic-white.jpg"),
-"Arabescato Verde":project("/quartz/partner-range/arabescato-verde-gallery.webp"),
+"Arabescato Verde":project("/quartz/partner-range/arabescato-verde-installed-4.webp"),
 "London Grey":project("/quartz/partner-range/london-grey-installed.webp")
 };
 const coverage={total:partnerQuartz.length,photographed:partnerQuartz.filter(c=>catalogueImages[c.name]).length};
