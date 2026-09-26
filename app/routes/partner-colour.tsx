@@ -10,9 +10,11 @@ const colourImages:Record<string,ColourImages>={
 "Super White":{slab:"/quartz/partner-range/super-white-1.jpg",installations:["/quartz/partner-range/super-white-2.jpg","/quartz/partner-range/super-white-3.jpg"]},
 "Snow White":{slab:"/quartz/partner-range/snow-white-details.jpg",installations:["/quartz/partner-range/snow-white-2.jpg","/quartz/partner-range/snow-white-fitted-2.jpg"]},
 "Calacatta Gold":{installations:["/quartz/partner-range/calacatta-gold-installed-5.webp","/quartz/partner-range/calacatta-gold-installed-6.webp","/quartz/partner-range/calacatta-gold-installed-7.webp","/quartz/partner-range/calacatta-gold-installed-1.webp","/quartz/partner-range/calacatta-gold-installed-2.webp","/quartz/partner-range/calacatta-gold-installed-3.webp","/quartz/partner-range/calacatta-gold-installed-4.webp"]},
-"Lydia Gold":{installations:["/quartz/partner-range/lydia-gold-installed.webp"]},
-"London Grey":{installations:["/quartz/partner-range/london-grey-installed.webp"]},
-"Arctic White":{installations:["/quartz/partner-range/arctic-white.jpg"]},
+"Lydia Gold":{installations:[1,2,3,4].map(n=>`/quartz/partner-range/lydia-gold-project-${n}.webp`)},
+"London Grey":{installations:[4,1,2,3].map(n=>`/quartz/partner-range/london-grey-project-${n}.webp`)},
+"Arctic White":{installations:[3,1,2].map(n=>`/quartz/partner-range/arctic-white-project-${n}.webp`)},
+"Sorento Gold":{installations:[1,2,3,4,5,6,7].map(n=>`/quartz/partner-range/sorento-gold-project-${n}.webp`)},
+"Denali":{installations:["/quartz/partner-range/denali-project-1.webp"]},
 "Arabescato Verde":{installations:["/quartz/partner-range/arabescato-verde-installed-4.webp","/quartz/partner-range/arabescato-verde-installed-5.webp","/quartz/partner-range/arabescato-verde-installed-6.webp"]},
 "Misterio Oro":{slab:"/quartz/partner-range/misterio-oro-2.jpg",installations:["/quartz/partner-range/misterio-oro-fitted.jpg"]}
 }

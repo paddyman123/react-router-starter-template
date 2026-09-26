@@ -12,10 +12,12 @@ const catalogueImages:Record<string,CatalogueImage>={
 "Snow White":{src:"/quartz/partner-range/snow-white-details.jpg",kind:"slab",source:"StoneMatch approved photography"},
 "Misterio Oro":{src:"/quartz/partner-range/misterio-oro-2.jpg",kind:"slab",source:"StoneMatch approved photography"},
 "Calacatta Gold":project("/quartz/partner-range/calacatta-gold-installed-5.webp"),
-"Lydia Gold":project("/quartz/partner-range/lydia-gold-installed.webp"),
-"Arctic White":project("/quartz/partner-range/arctic-white.jpg"),
+"Lydia Gold":project("/quartz/partner-range/lydia-gold-project-1.webp"),
+"Arctic White":project("/quartz/partner-range/arctic-white-project-3.webp"),
 "Arabescato Verde":project("/quartz/partner-range/arabescato-verde-installed-4.webp"),
-"London Grey":project("/quartz/partner-range/london-grey-installed.webp")
+"London Grey":project("/quartz/partner-range/london-grey-project-4.webp"),
+"Sorento Gold":project("/quartz/partner-range/sorento-gold-project-1.webp"),
+"Denali":project("/quartz/partner-range/denali-project-1.webp")
 };
 const coverage={total:partnerQuartz.length,photographed:partnerQuartz.filter(c=>catalogueImages[c.name]).length};
 const ranges:{name:PartnerTier;tag:string;copy:string;pos:string}[]=[{name:"Contract",tag:"Simple. Versatile. Exceptional value.",copy:"An accessible collection of soft, easy-to-use colours designed to work beautifully across a wide range of kitchens.",pos:"Everyday simplicity"},{name:"Contract Plus",tag:"Popular designs. Excellent value.",copy:"Fast-moving colours chosen for customers who want current, versatile designs with an excellent balance of style and value.",pos:"Popular favourites"},{name:"Vital",tag:"Beautiful marble-inspired surfaces.",copy:"Popular marble effects with more distinctive movement and veining — ideal when you want the worktop to become part of the design.",pos:"Marble inspired"},{name:"Essence",tag:"Statement surfaces for exceptional spaces.",copy:"Our high-end collection of premium marble effects and statement designs for kitchens where the surface deserves to take centre stage.",pos:"Premium collection"}];
