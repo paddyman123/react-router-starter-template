@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Generate route types
-        run: npm run typegen
+        run: npx react-router typegen
       - name: Build StoneMatch
         run: npm run build
       - name: Add SPA route fallback
