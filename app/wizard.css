@@ -12,3 +12,10 @@
 .wizard .upload-field>small{display:block;color:var(--muted);font-size:11px;font-weight:500;line-height:1.5}
 .wizard .upload-field>strong{display:block;margin-top:10px;color:#765d32;font-size:12px}
 @media(max-width:700px){.wizard .upload-field{padding:18px 14px;margin:6px 0 20px}.wizard .upload-field>span{font-size:20px}.wizard .upload-field input[type="file"]{min-height:52px;padding:12px 8px}.wizard .upload-field>small{font-size:10.5px}}
+
+
+.wizard-success .success-next{display:grid;gap:12px;background:var(--cream);border-left:3px solid var(--gold);padding:20px;margin:22px 0}
+.wizard-success .success-next>strong{font-family:Georgia,serif;font-size:22px;font-weight:400;color:var(--ink)}
+.wizard-success .success-next>span{display:flex;align-items:flex-start;gap:10px;color:var(--ink);font-size:13px;line-height:1.5}
+.wizard-success .success-next b{display:grid;place-items:center;flex:0 0 24px;width:24px;height:24px;border-radius:50%;background:var(--ink);color:#fff;font-size:11px}
+@media(max-width:700px){.wizard-success{padding:28px 20px}.wizard-success .success-next{padding:16px}.wizard-success .success-next>span{font-size:12px}}
