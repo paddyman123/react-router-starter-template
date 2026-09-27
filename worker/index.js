@@ -72,8 +72,15 @@ export default {
     if (files.length > 5 || files.some(f => f.size > 10 * 1024 * 1024)) return json({ ok: false, error: "Please upload no more than 5 files, with each file under 10MB." }, 400, origin);
     const allowedTypes = new Set(["application/pdf","image/jpeg","image/png","image/webp"]);
     if (files.some(f => !allowedTypes.has(f.type))) return json({ ok: false, error: "Uploads must be PDF, JPG, PNG or WEBP files." }, 400, origin);
-    const name = clean(data.name, 160), email = clean(data.email, 254), phone = clean(data.phone, 80), postcode = clean(data.postcode, 20);
+    const name = clean(data.name, 160), email = clean(data.email, 254).toLowerCase(), phone = clean(data.phone, 80), postcode = clean(data.postcode, 20).toUpperCase();
     if (!name || !email || !phone || !postcode) return json({ ok: false, error: "Name, email, phone and postcode are required." }, 400, origin);
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const postcodeOk = /^(GIR ?0AA|(?:[A-Z]{1,2}\d[A-Z\d]?|[A-Z]{1,2}\d{1,2}) ?\d[A-Z]{2})$/i.test(postcode);
+    const phoneDigits = phone.replace(/\D/g, "");
+    const phoneOk = phoneDigits.length >= 10 && phoneDigits.length <= 15;
+    if (!emailOk) return json({ ok: false, error: "Please enter a valid email address." }, 400, origin);
+    if (!phoneOk) return json({ ok: false, error: "Please enter a valid phone number." }, 400, origin);
+    if (!postcodeOk) return json({ ok: false, error: "Please enter a valid UK postcode." }, 400, origin);
     const token = await getPipedriveToken(env); if (!token) return json({ ok: false, error: "Pipedrive is not configured." }, 503, origin);
 
     try {
