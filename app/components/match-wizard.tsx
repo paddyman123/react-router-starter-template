@@ -4,7 +4,7 @@ declare global {
  interface Window { fbq?: (...args: unknown[]) => void; }
 }
 
-type MatchData = { postcode:string; projectType:string; material:string; style:string; budget:string; timescale:string; measurements:string; existingQuote:string; name:string; email:string; phone:string; bestTime:string; notes:string; };
+type MatchData = { attribution?:Record<string,string>; postcode:string; projectType:string; material:string; style:string; budget:string; timescale:string; measurements:string; existingQuote:string; name:string; email:string; phone:string; bestTime:string; notes:string; };
 const initialData:MatchData={postcode:"",projectType:"Kitchen worktops",material:"Not sure yet",style:"",budget:"",timescale:"",measurements:"",existingQuote:"",name:"",email:"",phone:"",bestTime:"",notes:""};
 const steps=["Project","Stone","Budget","Quote","Contact"];
 const LEAD_API="https://stonematch.patrick-deakin.workers.dev/api/lead";
@@ -15,6 +15,8 @@ export function MatchWizard(){
  const progress=useMemo(()=>((step+1)/steps.length)*100,[step]); const update=(field:keyof MatchData,value:string)=>setData(c=>({...c,[field]:value}));
  useEffect(()=>{
   const params=new URLSearchParams(window.location.search);
+  const attribution={source:params.get("utm_source")||params.get("source")||document.referrer||"Direct / unknown",medium:params.get("utm_medium")||"",campaign:params.get("utm_campaign")||"",content:params.get("utm_content")||"",term:params.get("utm_term")||"",landingPage:window.location.pathname+window.location.search,referrer:document.referrer};
+  setData(current=>({...current,attribution}));
   const material=params.get("material")||params.get("matcher");
   const colour=params.get("colour");
   const shortlist=params.get("shortlist");
