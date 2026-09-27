@@ -87,7 +87,7 @@ export default {
         ["Project postcode", data.postcode],["Project type", data.projectType],["Material", data.material],["Style / colour", data.style],["Budget", data.budget],["Timescale", data.timescale],
         ["Measurements / plans", data.measurements],["Existing quote", data.existingQuote],["Best time to call", data.bestTime],
         ["StoneMatch shortlist", data.shortlist],["Matcher primary recommendation", data.primaryMaterial || data.recommendedMaterial],["Matcher secondary recommendation", data.secondaryMaterial],
-        ["Matcher answers", data.matcherAnswers || data.answers],["Preferred edge detail", data.edgeDetail],["Build-up / fabrication preference", data.fabrication],["Other notes", data.notes]
+        ["Matcher answers", data.matcherAnswers || data.answers],["Preferred edge detail", data.edgeDetail],["Build-up / fabrication preference", data.fabrication],["Lead source", data.attribution?.source],["Marketing medium", data.attribution?.medium],["Campaign", data.attribution?.campaign],["Ad / content", data.attribution?.content],["Search term", data.attribution?.term],["Landing page", data.attribution?.landingPage],["Referrer", data.attribution?.referrer],["Other notes", data.notes]
       ];
       const noteContent = `<b>StoneMatch website enquiry</b><br><br>${fields.map(([k,v]) => `<b>${escapeHtml(k)}:</b> ${escapeHtml(v) || "—"}`).join("<br>")}`;
       await requestPipedrive(apiBase, "/api/v1/notes", token, { method: "POST", body: JSON.stringify({ content: noteContent, lead_id: leadId, pinned_to_lead_flag: 1 }) });
