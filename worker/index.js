@@ -78,8 +78,19 @@ export default {
 
     try {
       const apiBase = await getCompanyApiBase(token);
-      const personResult = await requestPipedrive(apiBase, "/api/v2/persons", token, { method: "POST", body: JSON.stringify({ name, emails: [{ value: email, primary: true, label: "work" }], phones: [{ value: phone, primary: true, label: "mobile" }] }) });
-      const personId = personResult?.data?.id; if (!personId) throw new Error("Pipedrive did not return a person ID.");
+      // Reuse an existing Pipedrive person where possible so repeat enquiries do not create duplicate contacts.
+      let personId = null;
+      const searchTerms = [email, phone].filter(Boolean);
+      for (const term of searchTerms) {
+        const found = await requestPipedrive(apiBase, `/api/v1/persons/search?term=${encodeURIComponent(term)}&fields=email,phone&exact_match=true&limit=1`, token, { method: "GET" });
+        personId = found?.data?.items?.[0]?.item?.id || null;
+        if (personId) break;
+      }
+      if (!personId) {
+        const personResult = await requestPipedrive(apiBase, "/api/v2/persons", token, { method: "POST", body: JSON.stringify({ name, emails: [{ value: email, primary: true, label: "work" }], phones: [{ value: phone, primary: true, label: "mobile" }] }) });
+        personId = personResult?.data?.id;
+      }
+      if (!personId) throw new Error("Pipedrive did not return a person ID.");
       const leadResult = await requestPipedrive(apiBase, "/api/v1/leads", token, { method: "POST", body: JSON.stringify({ title: `StoneMatch - ${name} - ${postcode}`, person_id: personId }) });
       const leadId = leadResult?.data?.id; if (!leadId) throw new Error("Pipedrive did not return a lead ID.");
 
