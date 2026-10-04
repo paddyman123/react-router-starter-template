@@ -1,3 +1,4 @@
+import { GuideNavigation } from "../components/guide-navigation";
 import { Page } from "../components/site-shell";
 import { MatchWizard } from "../components/match-wizard";
 
@@ -35,4 +36,4 @@ export default function CheckWorktopQuote(){return <Page>
 <div><p className="eyebrow">No quote yet?</p><h2>We can still find<br/><em>a better-value route.</em></h2></div>
 <div className="reason-copy"><p>If you're still choosing the material, use the Worktop Matcher. If you already have kitchen plans, you can use the same StoneMatch enquiry to tell us what you're working with.</p><a className="text-link light-link" href="/worktop-matcher">Take the Worktop Matcher →</a><br/><a className="text-link light-link" href="/materials">Explore Quartz, Porcelain, Marble & Granite →</a></div>
 </div></section>
-</Page>}
+<GuideNavigation/></Page>}
