@@ -14,7 +14,7 @@ const inspirationLinks:Record<string,{href:string;label:string}>={
  xtone:{href:"https://www.xtone-surface.com/",label:"Explore official XTONE surfaces"},
  sapienstone:{href:"https://www.sapienstone.com/",label:"Explore official SapienStone surfaces"}
 };
-export function meta({params}:any){const b=getPorcelainBrand(params.slug);return [{title:`${b?.name||"Porcelain"} Worktops | StoneMatch`},{name:"description",content:b?`Explore ${b.name} porcelain worktops with StoneMatch. Compare applications, specifications and the complete installed option.`:"Explore porcelain worktop brands with StoneMatch."}]}
+export function meta({params}:any){const b=getPorcelainBrand(params.slug);return [{tagName:"link",rel:"canonical",href:`https://stonematch.co.uk/materials/porcelain/brands/${params.slug}/`},{title:`${b?.name||"Porcelain"} Worktops | StoneMatch`},{name:"description",content:b?`Explore ${b.name} porcelain worktops with StoneMatch. Compare applications, specifications and the complete installed option.`:"Explore porcelain worktop brands with StoneMatch."}]}
 export default function PorcelainBrand({params}:any){const b=getPorcelainBrand(params.slug);if(!b)return <Page><section className="page-hero"><div className="shell narrow"><p className="eyebrow">Porcelain catalogue</p><h1>Brand not found.</h1><a className="button gold" href="/materials/porcelain">Back to Porcelain →</a></div></section></Page>;
 const images=brandImages[b.slug]||[];const inspiration=inspirationLinks[b.slug];
 return <Page>

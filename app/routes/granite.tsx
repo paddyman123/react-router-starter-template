@@ -8,8 +8,8 @@ const suppliers=[
  ["Develli","https://develli.co.uk/"]
 ];
 
-const seoSchema={"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","name":"Granite Worktops","url":"https://stonematch.co.uk/materials/granite","description":"Natural Granite kitchen worktops, slab selection, finishes and buying guidance from StoneMatch.","publisher":{"@id":"https://stonematch.co.uk/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://stonematch.co.uk/"},{"@type":"ListItem","position":2,"name":"Materials","item":"https://stonematch.co.uk/materials"},{"@type":"ListItem","position":3,"name":"Granite Worktops","item":"https://stonematch.co.uk/materials/granite"}]}]};
-export function meta(){return [
+const seoSchema={"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","name":"Granite Worktops","url":"https://stonematch.co.uk/materials/granite/","description":"Natural Granite kitchen worktops, slab selection, finishes and buying guidance from StoneMatch.","publisher":{"@id":"https://stonematch.co.uk/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://stonematch.co.uk/"},{"@type":"ListItem","position":2,"name":"Materials","item":"https://stonematch.co.uk/materials/"},{"@type":"ListItem","position":3,"name":"Granite Worktops","item":"https://stonematch.co.uk/materials/granite/"}]}]};
+export function meta(){return [{tagName:"link",rel:"canonical",href:"https://stonematch.co.uk/materials/granite/"},
  {title:"Granite Worktops | Natural Stone | StoneMatch"},
  {name:"description",content:"Explore granite worktops, natural slabs and finishes, then let StoneMatch look for a better-value fabrication and installation route."}
 ]}

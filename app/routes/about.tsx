@@ -1,5 +1,5 @@
 import { Page } from "../components/site-shell";
-export function meta(){return [{title:"About StoneMatch | A Smarter Way to Buy Stone Worktops"},{name:"description",content:"StoneMatch uses stone-industry knowledge to help homeowners find better-value routes for quartz, porcelain, marble and granite worktops."}]}
+export function meta(){return [{tagName:"link",rel:"canonical",href:"https://stonematch.co.uk/about/"},{title:"About StoneMatch | A Smarter Way to Buy Stone Worktops"},{name:"description",content:"StoneMatch uses stone-industry knowledge to help homeowners find better-value routes for quartz, porcelain, marble and granite worktops."}]}
 export default function About(){return <Page>
 <section className="page-hero"><div className="shell narrow"><p className="eyebrow">About StoneMatch</p><h1>Stone industry knowledge.<br/><em>On your side.</em></h1><p className="lead">StoneMatch was created to help homeowners buy beautiful stone worktops without paying more than they need to.</p></div></section>
 

@@ -2,7 +2,7 @@ import type { Route } from "./+types/home";
 import { Welcome } from "../welcome/welcome";
 
 export function meta({}: Route.MetaArgs) {
-	return [
+	return [{tagName:"link",rel:"canonical",href:"https://stonematch.co.uk/"},
 		{ title: "StoneMatch | Save Money on Quartz, Porcelain & Stone Worktops" },
 		{ name: "description", content: "StoneMatch helps homeowners save money on quartz, porcelain, granite and marble worktops by comparing better-value supply, fabrication and installation routes." },
 	];

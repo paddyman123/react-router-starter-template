@@ -1,7 +1,7 @@
 import { Page } from "../components/site-shell";
 import { MatchWizard } from "../components/match-wizard";
 
-export function meta(){return [{title:"Save Money on Your Worktop Quote | StoneMatch"},{name:"description",content:"Already have a kitchen worktop quote or kitchen plan? Send it to StoneMatch and see whether we can find a better-value route for the complete installed job."}]}
+export function meta(){return [{tagName:"link",rel:"canonical",href:"https://stonematch.co.uk/guides/check-my-worktop-quote/"},{title:"Save Money on Your Worktop Quote | StoneMatch"},{name:"description",content:"Already have a kitchen worktop quote or kitchen plan? Send it to StoneMatch and see whether we can find a better-value route for the complete installed job."}]}
 
 export default function CheckWorktopQuote(){return <Page>
 <section className="page-hero"><div className="shell narrow">

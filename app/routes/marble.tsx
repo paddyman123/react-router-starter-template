@@ -8,8 +8,8 @@ const suppliers=[
  ["Develli","https://develli.co.uk/"]
 ];
 
-const seoSchema={"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","name":"Marble Worktops","url":"https://stonematch.co.uk/materials/marble","description":"Natural Marble kitchen worktops, exact-slab selection, care and buying guidance from StoneMatch.","publisher":{"@id":"https://stonematch.co.uk/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://stonematch.co.uk/"},{"@type":"ListItem","position":2,"name":"Materials","item":"https://stonematch.co.uk/materials"},{"@type":"ListItem","position":3,"name":"Marble Worktops","item":"https://stonematch.co.uk/materials/marble"}]}]};
-export function meta(){return [
+const seoSchema={"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","name":"Marble Worktops","url":"https://stonematch.co.uk/materials/marble/","description":"Natural Marble kitchen worktops, exact-slab selection, care and buying guidance from StoneMatch.","publisher":{"@id":"https://stonematch.co.uk/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://stonematch.co.uk/"},{"@type":"ListItem","position":2,"name":"Materials","item":"https://stonematch.co.uk/materials/"},{"@type":"ListItem","position":3,"name":"Marble Worktops","item":"https://stonematch.co.uk/materials/marble/"}]}]};
+export function meta(){return [{tagName:"link",rel:"canonical",href:"https://stonematch.co.uk/materials/marble/"},
  {title:"Marble Worktops | Natural Stone | StoneMatch"},
  {name:"description",content:"Explore marble worktops, exact-slab selection and care, then let StoneMatch look for a better-value fabrication and installation route."}
 ]}

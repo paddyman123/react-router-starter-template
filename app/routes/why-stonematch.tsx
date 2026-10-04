@@ -1,6 +1,6 @@
 import { Page } from "../components/site-shell";
 
-export function meta(){return [{title:"Why StoneMatch? | Smarter Worktop Buying"},{name:"description",content:"Why StoneMatch exists: experienced stone industry guidance to help homeowners choose the right worktop, compare like-for-like and avoid overpaying."}]}
+export function meta(){return [{tagName:"link",rel:"canonical",href:"https://stonematch.co.uk/why-stonematch/"},{title:"Why StoneMatch? | Smarter Worktop Buying"},{name:"description",content:"Why StoneMatch exists: experienced stone industry guidance to help homeowners choose the right worktop, compare like-for-like and avoid overpaying."}]}
 
 export default function WhyStoneMatch(){return <Page>
 <section className="page-hero"><div className="shell narrow"><p className="eyebrow">Why StoneMatch?</p><h1>The worktop you want.<br/><em>Without overpaying.</em></h1><p className="lead">StoneMatch uses stone-industry knowledge and a network of suitable suppliers and fabricators to help homeowners find better-value ways to buy their worktops.</p></div></section>

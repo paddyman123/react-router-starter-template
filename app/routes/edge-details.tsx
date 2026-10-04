@@ -1,7 +1,7 @@
 import { Page } from "../components/site-shell";
 import { edgeGuidance } from "../data/partner-range";
 
-export function meta(){return [{title:"Worktop Edge Details & Fabrication | StoneMatch"},{name:"description",content:"StoneMatch guidance on double bevel, bullnose, shark nose, double pencil, ogee and built-up porcelain worktop edges."}]}
+export function meta(){return [{tagName:"link",rel:"canonical",href:"https://stonematch.co.uk/guides/worktop-edge-profiles/"},{title:"Worktop Edge Details & Fabrication | StoneMatch"},{name:"description",content:"StoneMatch guidance on double bevel, bullnose, shark nose, double pencil, ogee and built-up porcelain worktop edges."}]}
 
 const cards=[
  {title:"20mm worktops",intro:"A slimmer, contemporary worktop gives you more freedom to use the edge profile as part of the design.",items:["Bullnose — premium, softer profile","Shark Nose — premium and especially effective with handleless kitchens","Double Bevel — clean, understated finish","Double Pencil — a great alternative to Bullnose without the same fabrication cost"]},

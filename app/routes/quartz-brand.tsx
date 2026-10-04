@@ -17,7 +17,7 @@ const inspirationLinks:Record<string,{href:string;label:string}>={
  "b-stone":{href:"https://bstoneuk.co.uk/material/bquartz/",label:"Explore official BQuartz collection"},
  "unistone-bqs":{href:"https://www.brachot.com/en/materials/unistone",label:"Explore official Unistone collection"}
 };
-export function meta({params}:any){const brand=getQuartzBrand(params.slug);return [{title:`${brand?.name||"Quartz Brand"} Worktops | StoneMatch`},{name:"description",content:brand?`Explore ${brand.name} quartz with StoneMatch and compare suitable surfaces, specification, fabrication and installed value.`:"Explore quartz brands with StoneMatch."}]}
+export function meta({params}:any){const brand=getQuartzBrand(params.slug);return [{tagName:"link",rel:"canonical",href:`https://stonematch.co.uk/materials/quartz/brands/${params.slug}/`},{title:`${brand?.name||"Quartz Brand"} Worktops | StoneMatch`},{name:"description",content:brand?`Explore ${brand.name} quartz with StoneMatch and compare suitable surfaces, specification, fabrication and installed value.`:"Explore quartz brands with StoneMatch."}]}
 export default function QuartzBrand({params}:any){const brand=getQuartzBrand(params.slug);if(!brand)return <Page><section className="page-hero"><div className="shell narrow"><p className="eyebrow">StoneMatch Quartz</p><h1>Brand not found.</h1><a className="button gold" href="/materials/quartz">Back to quartz →</a></div></section></Page>;
 const images=brand.slug==="partner-range"?partnerImages:[];const inspiration=inspirationLinks[brand.slug];
 return <Page>

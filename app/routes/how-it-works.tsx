@@ -1,6 +1,6 @@
 import { Page } from "../components/site-shell";
 
-export function meta(){return [{title:"How StoneMatch Works | StoneMatch"},{name:"description",content:"See how StoneMatch helps homeowners save money on stone worktops by comparing suitable materials, suppliers, fabricators and installed prices."}]}
+export function meta(){return [{tagName:"link",rel:"canonical",href:"https://stonematch.co.uk/how-it-works/"},{title:"How StoneMatch Works | StoneMatch"},{name:"description",content:"See how StoneMatch helps homeowners save money on stone worktops by comparing suitable materials, suppliers, fabricators and installed prices."}]}
 
 const steps=[
 ["01","Tell us what matters","Start with whatever you have — measurements, a kitchen plan, inspiration photos, a stone name, an existing quote or simply a budget. The better we understand the outcome you want, the better we can match it."],

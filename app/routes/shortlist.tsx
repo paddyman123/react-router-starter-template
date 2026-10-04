@@ -4,7 +4,7 @@ import { partnerQuartz } from "../data/partner-range";
 
 const slugify=(value:string)=>value.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"");
 
-export function meta(){return [{title:"Your StoneMatch Shortlist | StoneMatch"},{name:"description",content:"Review the StoneMatch colours you have shortlisted and send them with your enquiry."}]}
+export function meta(){return [{tagName:"link",rel:"canonical",href:"https://stonematch.co.uk/shortlist/"},{title:"Your StoneMatch Shortlist | StoneMatch"},{name:"description",content:"Review the StoneMatch colours you have shortlisted and send them with your enquiry."}]}
 
 export default function Shortlist(){
  const [names,setNames]=useState<string[]>([]);
