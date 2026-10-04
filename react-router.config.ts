@@ -4,6 +4,7 @@ export default {
  ssr: false,
  // Every canonical sitemap page has readable HTML before JavaScript runs.
  prerender: [
+"/guides/quartz-worktop-prices",
 "/guides/choosing-natural-stone-slabs",
 "/guides/marble-granite-worktop-quotes",
 
