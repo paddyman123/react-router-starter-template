@@ -10,6 +10,10 @@ export default {
 		"/privacy",
 		"/terms",
 		"/guides",
+		"/guides/stone-worktop-installation",
+		"/guides/quartz-worktop-care",
+		"/guides/porcelain-worktop-care",
+
 		"/guides/sink-cut-outs-drainer-grooves",
 		"/guides/kitchen-island-worktop-overhangs",
 		"/guides/check-my-worktop-quote",
