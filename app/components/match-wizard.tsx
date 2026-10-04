@@ -1,3 +1,4 @@
+import { trackAcceptedEnquiry } from "../lib/enquiry-analytics";
 import { getEnquiryAttribution } from "../lib/enquiry-attribution";
 import { useEffect, useMemo, useState } from "react";
 
@@ -50,6 +51,7 @@ export function MatchWizard(){
    if(!response.ok||!result.ok)throw new Error(result.error||"Submission failed");
    window.fbq?.("track", "Lead", { content_name: "StoneMatch enquiry", content_category: data.projectType, material:data.material, has_upload:files.length>0, has_existing_quote:Boolean(data.existingQuote.trim()) }); window.fbq?.("trackCustom","StoneMatchQualifiedSignal",{has_upload:files.length>0,has_existing_quote:Boolean(data.existingQuote.trim()),material:data.material});
    setSubmitted(true);
+   trackAcceptedEnquiry({ form: "match_wizard", hasUpload: files.length > 0 });
   }catch(e){console.error(e);setError("We couldn't send your project just now. Please try again, or email enquiries@stonematch.co.uk.");}
   finally{setSubmitting(false);}
  }
