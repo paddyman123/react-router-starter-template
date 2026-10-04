@@ -1,3 +1,4 @@
+import { getEnquiryAttribution } from "../lib/enquiry-attribution";
 import { useEffect, useMemo, useState } from "react";
 
 declare global {
@@ -15,7 +16,7 @@ export function MatchWizard(){
  const progress=useMemo(()=>((step+1)/steps.length)*100,[step]); const update=(field:keyof MatchData,value:string)=>setData(c=>({...c,[field]:value}));
  useEffect(()=>{
   const params=new URLSearchParams(window.location.search);
-  const attribution={source:params.get("utm_source")||params.get("source")||document.referrer||"Direct / unknown",medium:params.get("utm_medium")||"",campaign:params.get("utm_campaign")||"",content:params.get("utm_content")||"",term:params.get("utm_term")||"",landingPage:window.location.pathname+window.location.search,referrer:document.referrer};
+  const attribution=getEnquiryAttribution();
   setData(current=>({...current,attribution}));
   const material=params.get("material")||params.get("matcher");
   const colour=params.get("colour");
