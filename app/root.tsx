@@ -21,6 +21,14 @@ export const links: Route.LinksFunction = () => [
 	{ rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" },
 ];
 
+const GOOGLE_MEASUREMENT_ID = "G-044RPZF5DC";
+const googleTagScript = `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GOOGLE_MEASUREMENT_ID}');
+`;
+
 const META_PIXEL_ID = "1621180156718387";
 const metaPixelScript = `
 !function(f,b,e,v,n,t,s)
@@ -43,7 +51,7 @@ const structuredData={
 };
 
 export function Layout({ children }: { children: React.ReactNode }) {
-	return <html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="theme-color" content="#111111"/><meta property="og:site_name" content="StoneMatch"/><meta property="og:type" content="website"/><meta property="og:locale" content="en_GB"/><meta name="twitter:card" content="summary_large_image"/><Meta/><Links/><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(structuredData)}}/><script dangerouslySetInnerHTML={{__html:metaPixelScript}}/><noscript><img height="1" width="1" style={{display:"none"}} src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`} alt=""/></noscript></head><body>{children}<ScrollRestoration/><Scripts/></body></html>;
+	return <html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="theme-color" content="#111111"/><meta property="og:site_name" content="StoneMatch"/><meta property="og:type" content="website"/><meta property="og:locale" content="en_GB"/><meta name="twitter:card" content="summary_large_image"/><Meta/><Links/><script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_MEASUREMENT_ID}`}/><script dangerouslySetInnerHTML={{__html:googleTagScript}}/><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(structuredData)}}/><script dangerouslySetInnerHTML={{__html:metaPixelScript}}/><noscript><img height="1" width="1" style={{display:"none"}} src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`} alt=""/></noscript></head><body>{children}<ScrollRestoration/><Scripts/></body></html>;
 }
 export default function App(){useEffect(()=>{getEnquiryAttribution()},[]);return <Outlet/>}
 export function ErrorBoundary({error}:Route.ErrorBoundaryProps){let message="Oops!",details="An unexpected error occurred.",stack:string|undefined;if(isRouteErrorResponse(error)){message=error.status===404?"404":"Error";details=error.status===404?"The requested page could not be found.":error.statusText||details}else if(import.meta.env.DEV&&error&&error instanceof Error){details=error.message;stack=error.stack}return <main><section className="page-hero"><div className="shell narrow"><p className="eyebrow">StoneMatch</p><h1>{message}</h1><p className="lead">{details}</p><a className="button gold" href="/">Back to StoneMatch →</a>{stack&&<pre className="w-full p-4 overflow-x-auto"><code>{stack}</code></pre>}</div></section></main>}
