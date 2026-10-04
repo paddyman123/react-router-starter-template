@@ -35,8 +35,8 @@ fbq('track', 'PageView');
 const structuredData={
 	"@context":"https://schema.org",
 	"@graph":[
-		{"@type":"Organization","@id":"https://stonematch.co.uk/#organization","name":"StoneMatch","legalName":"Deakin Surfaces Limited","url":"https://stonematch.co.uk/","email":"enquiries@stonematch.co.uk","sameAs":["https://www.instagram.com/stonematchuk/"]},
-		{"@type":"WebSite","@id":"https://stonematch.co.uk/#website","url":"https://stonematch.co.uk/","name":"StoneMatch","publisher":{"@id":"https://stonematch.co.uk/#organization"},"inLanguage":"en-GB"}
+		{"@type":"Organization","@id":"https://stonematch.co.uk/#organization","name":"StoneMatch","legalName":"Deakin Surfaces Limited","url":"https://stonematch.co.uk/","email":"enquiries@stonematch.co.uk","sameAs":["https://www.instagram.com/stonematchuk/"],"areaServed":{"@type":"AdministrativeArea","name":"West Midlands, England"},"knowsAbout":["Quartz worktops","Porcelain worktops","Granite worktops","Marble worktops","Kitchen worktop specification","Worktop fabrication","Worktop quote comparison"]},
+		{"@type":"WebSite","@id":"https://stonematch.co.uk/#website","url":"https://stonematch.co.uk/","name":"StoneMatch","publisher":{"@id":"https://stonematch.co.uk/#organization"},"inLanguage":"en-GB","description":"Independent worktop guidance helping homeowners compare materials, specifications, quotes and suitable fabrication routes."}
 	]
 };
 
