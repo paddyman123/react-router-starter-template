@@ -3,8 +3,8 @@ import { Welcome } from "../welcome/welcome";
 
 export function meta({}: Route.MetaArgs) {
 	return [{tagName:"link",rel:"canonical",href:"https://stonematch.co.uk/"},
-		{ title: "StoneMatch | Save Money on Quartz, Porcelain & Stone Worktops" },
-		{ name: "description", content: "StoneMatch helps homeowners save money on quartz, porcelain, granite and marble worktops by comparing better-value supply, fabrication and installation routes." },
+		{ title: "Stone Worktop Quote Comparison | Quartz & Natural Stone | StoneMatch" },
+		{ name: "description", content: "Compare stone worktop quotes with StoneMatch. Explore Quartz, Porcelain, Granite and Marble, and compare suitable fabrication and installation options for your kitchen." },
 	];
 }
 
