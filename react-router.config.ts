@@ -11,6 +11,7 @@ export default {
 "/guides/marble-granite-worktop-quotes",
 
   "/",
+  "/check-my-quote",
   "/how-it-works",
   "/why-stonematch",
   "/about",
