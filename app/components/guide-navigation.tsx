@@ -19,6 +19,7 @@ const groups = {
   ["Porcelain advantages and limitations", "/guides/porcelain-worktops-pros-cons/"],
  ],
  price: [
+  ["Compare a quote before you pay the deposit", "/guides/compare-worktop-quotes/"],
   ["Understand Quartz worktop costs", "/guides/how-much-do-quartz-worktops-cost/"],
   ["Compare complete worktop quotations", "/guides/how-to-compare-worktop-quotes/"],
   ["Kitchen company or specialist route?", "/guides/kitchen-company-vs-direct-worktops/"],

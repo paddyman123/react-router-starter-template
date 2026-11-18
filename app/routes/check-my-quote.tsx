@@ -71,6 +71,7 @@ export default function CheckMyQuote() {
    <p className="eyebrow dark">Like for like</p>
    <h2 id="what-we-check-heading">What we check<br/><em>on the quote you hold.</em></h2>
    <p className="section-intro">Two quotes can name a similar colour and still describe different jobs. We read the specification, not just the total.</p>
+   <p className="guide-further">Prefer to go through it yourself first? <a href="/guides/compare-worktop-quotes/">How to compare a worktop quote before you pay the deposit</a>.</p>
    <div className="check-grid">{checks.map(([heading, copy]) => <article key={heading}><h3>{heading}</h3><p>{copy}</p></article>)}</div>
   </div></section>
 
@@ -105,7 +106,7 @@ export default function CheckMyQuote() {
 
   <footer className="landing-footer"><div className="shell">
    <p>StoneMatch · <a href="mailto:enquiries@stonematch.co.uk">enquiries@stonematch.co.uk</a></p>
-   <p><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/">StoneMatch home</a></p>
+   <p><a href="/guides/compare-worktop-quotes/">Compare a quote before you pay</a> · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/">StoneMatch home</a></p>
    <p className="legal-note">StoneMatch is a trading name of Deakin Surfaces Limited. Registered in England and Wales. Company number 17413451.</p>
   </div></footer>
  </main>;
