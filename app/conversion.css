@@ -24,6 +24,7 @@
 
 .reviews-empty{max-width:720px;margin-top:28px;background:#fff;border:1px solid #e4ddd0;padding:36px}
 .reviews-empty p{color:#5c5f58;line-height:1.7;font-size:17px}
+.reviews-actions{display:flex;flex-wrap:wrap;gap:16px 22px;align-items:center;margin:4px 0 8px}
 .reviews-note{font-size:13px!important;color:#6d7069!important}
 
 .landing{background:#fbfaf7;color:#111310}
@@ -48,4 +49,6 @@
  .case-photo{min-height:220px}
  .landing-hero{padding:56px 0 48px}
  .reviews-empty{padding:24px}
+ .reviews-actions{align-items:flex-start;flex-direction:column}
+ .reviews-actions .button{width:100%;text-align:center}
 }
