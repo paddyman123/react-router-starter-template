@@ -44,11 +44,38 @@
 .landing-footer a{color:#d5b779;text-decoration:none}
 .landing-footer .legal-note{display:inline-block;text-align:left;max-width:520px;margin-top:14px}
 
+.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:36px}
+.check-grid article{background:#fff;border:1px solid #e4ddd0;padding:22px}
+.check-grid h3{font-family:Georgia,serif;font-weight:400;font-size:22px;margin:0 0 8px;letter-spacing:-.02em}
+.check-grid p{margin:0;color:#5c5f58;font-size:14px;line-height:1.6}
+.honest-line{max-width:640px;margin:28px 0 0;color:#3e413c;font-size:17px;line-height:1.6}
+#quote-check{scroll-margin-top:16px}
+.landing .section-intro{margin-top:18px}
+.landing .enquiry-head{max-width:760px;margin-bottom:28px}
+.wizard label small{font-weight:600;color:var(--muted)}
+.landing .enquiry-head p:last-child{color:#5c5f58;line-height:1.7;font-size:17px}
+.case-slot{margin-top:28px;min-height:220px;border:2px dashed #b99555;background:repeating-linear-gradient(-45deg,#f7f3ea,#f7f3ea 14px,#efe6d4 14px,#efe6d4 28px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:36px 28px;color:#6e5a32}
+.case-slot strong{letter-spacing:.16em;font-size:12px;text-transform:uppercase}
+.case-slot p{max-width:460px;font-size:15px;line-height:1.6;margin:12px 0 0}
+.quote-faq{display:grid;gap:10px;margin-top:28px}
+.quote-faq details{background:#fff;border:1px solid #e4ddd0;padding:18px 20px}
+.quote-faq summary{cursor:pointer;font-weight:700;font-size:16px;line-height:1.4}
+.quote-faq summary:focus-visible{outline:2px solid #b99555;outline-offset:3px}
+.quote-faq p{margin:12px 0 0;color:#5c5f58;line-height:1.65}
+
 @media(max-width:800px){
- #how .steps,.case-study,.landing-points,.case-figures{grid-template-columns:1fr}
+ #how .steps,.case-study,.landing-points,.case-figures,.check-grid{grid-template-columns:1fr}
  .case-photo{min-height:220px}
  .landing-hero{padding:56px 0 48px}
+ .landing-hero h1{font-size:clamp(36px,10vw,48px)}
+ .landing .lead{font-size:18px}
+ .landing .hero-actions{display:grid;grid-template-columns:1fr}
+ .landing .hero-actions .button{width:100%}
+ .landing .trust{display:flex!important;grid-template-columns:none!important;flex-direction:row;flex-wrap:wrap;gap:8px 16px}
+ .landing-nav{min-height:72px;align-items:center}
  .reviews-empty{padding:24px}
  .reviews-actions{align-items:flex-start;flex-direction:column}
  .reviews-actions .button{width:100%;text-align:center}
+ .case-slot{padding:28px 18px}
+ .quote-faq details{padding:16px}
 }

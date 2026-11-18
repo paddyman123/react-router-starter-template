@@ -73,13 +73,15 @@ export default {
     const allowedTypes = new Set(["application/pdf","image/jpeg","image/png","image/webp"]);
     if (files.some(f => !allowedTypes.has(f.type))) return json({ ok: false, error: "Uploads must be PDF, JPG, PNG or WEBP files." }, 400, origin);
     const name = clean(data.name, 160), email = clean(data.email, 254).toLowerCase(), phone = clean(data.phone, 80), postcode = clean(data.postcode, 20).toUpperCase();
-    if (!name || !email || !phone || !postcode) return json({ ok: false, error: "Name, email, phone and postcode are required." }, 400, origin);
+    // Phone is optional. The quote-check page collects email only, and does not publish or ask for a number.
+    // Other forms still send a phone; when one is present it is checked as before.
+    if (!name || !email || !postcode) return json({ ok: false, error: "Name, email and postcode are required." }, 400, origin);
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     const postcodeOk = /^(GIR ?0AA|(?:[A-Z]{1,2}\d[A-Z\d]?|[A-Z]{1,2}\d{1,2}) ?\d[A-Z]{2})$/i.test(postcode);
     const phoneDigits = phone.replace(/\D/g, "");
     const phoneOk = phoneDigits.length >= 10 && phoneDigits.length <= 15;
     if (!emailOk) return json({ ok: false, error: "Please enter a valid email address." }, 400, origin);
-    if (!phoneOk) return json({ ok: false, error: "Please enter a valid phone number." }, 400, origin);
+    if (phone && !phoneOk) return json({ ok: false, error: "Please enter a valid phone number." }, 400, origin);
     if (!postcodeOk) return json({ ok: false, error: "Please enter a valid UK postcode." }, 400, origin);
     const token = await getPipedriveToken(env); if (!token) return json({ ok: false, error: "Pipedrive is not configured." }, 503, origin);
 
@@ -94,7 +96,9 @@ export default {
         if (personId) break;
       }
       if (!personId) {
-        const personResult = await requestPipedrive(apiBase, "/api/v2/persons", token, { method: "POST", body: JSON.stringify({ name, emails: [{ value: email, primary: true, label: "work" }], phones: [{ value: phone, primary: true, label: "mobile" }] }) });
+        const personBody = { name, emails: [{ value: email, primary: true, label: "work" }] };
+        if (phone) personBody.phones = [{ value: phone, primary: true, label: "mobile" }];
+        const personResult = await requestPipedrive(apiBase, "/api/v2/persons", token, { method: "POST", body: JSON.stringify(personBody) });
         personId = personResult?.data?.id;
       }
       if (!personId) throw new Error("Pipedrive did not return a person ID.");
@@ -105,7 +109,7 @@ export default {
         ["Project postcode", data.postcode],["Project type", data.projectType],["Material", data.material],["Style / colour", data.style],["Budget", data.budget],["Timescale", data.timescale],
         ["Measurements / plans", data.measurements],["Existing quote", data.existingQuote],["Best time to call", data.bestTime],
         ["StoneMatch shortlist", data.shortlist],["Matcher primary recommendation", data.primaryMaterial || data.recommendedMaterial],["Matcher secondary recommendation", data.secondaryMaterial],
-        ["Matcher answers", data.matcherAnswers || data.answers],["Preferred edge detail", data.edgeDetail],["Build-up / fabrication preference", data.fabrication],["Lead source", data.attribution?.source],["Marketing medium", data.attribution?.medium],["Campaign", data.attribution?.campaign],["Ad / content", data.attribution?.content],["Search term", data.attribution?.term],["Landing page", data.attribution?.landingPage],["Referrer", data.attribution?.referrer],["Other notes", data.notes]
+        ["Matcher answers", data.matcherAnswers || data.answers],["Preferred edge detail", data.edgeDetail],["Build-up / fabrication preference", data.fabrication],["Enquiry page", data.page],["Lead source", data.attribution?.source],["Marketing medium", data.attribution?.medium],["Campaign", data.attribution?.campaign],["Ad / content", data.attribution?.content],["Search term", data.attribution?.term],["Landing page", data.attribution?.landingPage],["Referrer", data.attribution?.referrer],["Other notes", data.notes]
       ];
       const noteContent = `<b>StoneMatch website enquiry</b><br><br>${fields.map(([k,v]) => `<b>${escapeHtml(k)}:</b> ${escapeHtml(v) || "—"}`).join("<br>")}`;
       await requestPipedrive(apiBase, "/api/v1/notes", token, { method: "POST", body: JSON.stringify({ content: noteContent, lead_id: leadId, pinned_to_lead_flag: 1 }) });
