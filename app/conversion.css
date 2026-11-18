@@ -63,6 +63,52 @@
 .quote-faq summary:focus-visible{outline:2px solid #b99555;outline-offset:3px}
 .quote-faq p{margin:12px 0 0;color:#5c5f58;line-height:1.65}
 
+.guide-prose p{max-width:720px;color:#3e413c;font-size:17px;line-height:1.7;margin:0}
+.guide-prose p+p{margin-top:16px}
+.guide-prose strong{color:#111310}
+.guide-jumps{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 8px}
+.guide-jumps a{display:inline-block;border:1px solid #e4ddd0;background:#fff;color:#111310;text-decoration:none;font-size:13px;font-weight:650;padding:8px 12px}
+.guide-jumps a:hover,.guide-jumps a:focus-visible{border-color:#b99555;outline:none}
+.guide-steps{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.guide-steps article{background:#fff;border:1px solid #e4ddd0;padding:20px 22px}
+.guide-steps span{display:block;color:#92743e;letter-spacing:.14em;font-size:12px;font-weight:750;margin-bottom:10px}
+.guide-steps h3{font-family:Georgia,serif;font-weight:400;font-size:22px;line-height:1.25;margin:0 0 8px}
+.guide-steps p{margin:0;color:#5c5f58;font-size:14px;line-height:1.6}
+.guide-points{display:grid;gap:14px;margin-top:32px}
+.guide-points article{background:#fff;border:1px solid #e4ddd0;padding:22px 24px}
+.guide-points h3{font-family:Georgia,serif;font-weight:400;font-size:26px;letter-spacing:-.02em;margin:0 0 8px}
+.guide-points p{margin:0;color:#5c5f58;font-size:16px;line-height:1.65}
+.guide-further{max-width:760px;margin:28px 0 0;color:#5c5f58;font-size:15px;line-height:1.6}
+.guide-further a,.quote-guide .reason-copy a{color:inherit;font-weight:650;text-decoration:underline;text-decoration-color:#b99555;text-underline-offset:3px}
+.quote-guide .dark-section .reason-copy a{color:#d5b779}
+.quote-guide .reason-copy .button{margin-top:8px}
+.quote-checklist .button:focus-visible{outline:2px solid #b99555;outline-offset:3px}
+.quote-checklist{background:#fff;border:1px solid #e4ddd0;padding:28px 28px 22px;margin-top:28px}
+.quote-checklist h3{font-family:Georgia,serif;font-weight:400;font-size:32px;margin:0 0 8px}
+.quote-checklist>p{margin:0 0 16px;color:#5c5f58;line-height:1.6}
+.quote-checklist ol{list-style:none;margin:0;padding:0;counter-reset:check}
+.quote-checklist li{position:relative;color:#3e413c;line-height:1.55;padding:0 0 0 2em;margin:0 0 12px}
+.quote-checklist li:last-child{margin-bottom:0}
+.quote-checklist li::before{content:counter(check);counter-increment:check;position:absolute;left:0;top:0;color:#92743e;font-weight:700}
+.quote-checklist-actions{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;margin-top:22px}
+.quote-checklist .button{font-family:inherit}
+.button.quiet{background:transparent;color:#111310;border:1px solid #111310}
+.button.quiet:hover,.button.quiet:focus-visible{border-color:#b99555;outline:none}
+.quote-checklist-actions [aria-live]{font-size:14px;color:#3e413c}
+
+@media print{
+ body:has(.quote-guide) header,
+ body:has(.quote-guide) footer,
+ body:has(.quote-guide) .savings-story,
+ body:has(.quote-guide) .quote-guide > section:not(:has(#checklist)),
+ body:has(.quote-guide) .no-print{display:none !important}
+ body:has(.quote-guide) .section{padding:0 !important;background:#fff !important}
+ body:has(.quote-guide) #checklist{border:0;margin:12px 0 0;padding:0}
+ body:has(.quote-guide) .eyebrow,
+ body:has(.quote-guide) h2 em,
+ body:has(.quote-guide) .quote-checklist li::before{color:#111 !important}
+}
+
 @media(max-width:800px){
  #how .steps,.case-study,.landing-points,.case-figures,.check-grid{grid-template-columns:1fr}
  .case-photo{min-height:220px}
@@ -78,4 +124,12 @@
  .reviews-actions .button{width:100%;text-align:center}
  .case-slot{padding:28px 18px}
  .quote-faq details{padding:16px}
+ .guide-steps{grid-template-columns:1fr}
+ .guide-points h3{font-size:24px}
+ .guide-points article,.quote-checklist{padding:18px}
+ .quote-checklist h3{font-size:28px}
+ .quote-checklist-actions{display:grid;grid-template-columns:1fr}
+ .quote-checklist-actions .button{width:100%}
+ .quote-guide .dark-section .button{width:100%}
+ .guide-jumps a{padding:10px 12px}
 }

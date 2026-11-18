@@ -95,6 +95,7 @@ export default {
   "/guides/20mm-vs-30mm-quartz-worktops",
   "/guides/stone-splashback-vs-tiles",
   "/guides/how-to-compare-worktop-quotes",
+  "/guides/compare-worktop-quotes",
   "/guides/kitchen-company-vs-direct-worktops",
   "/guides/how-much-do-quartz-worktops-cost",
   "/guides/wren-worktop-quote-comparison",
