@@ -131,6 +131,8 @@ export function meta() {
   { property: "og:title", content: title },
   { property: "og:description", content: description },
   { property: "og:url", content: canonical },
+  { property: "og:image", content: "https://stonematch.co.uk/og-image.jpg" },
+  { name: "twitter:image", content: "https://stonematch.co.uk/og-image.jpg" },
  ];
 }
 

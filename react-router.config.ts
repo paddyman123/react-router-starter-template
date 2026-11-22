@@ -12,6 +12,7 @@ export default {
 
   "/",
   "/check-my-quote",
+  "/quote-check",
   "/how-it-works",
   "/why-stonematch",
   "/about",
