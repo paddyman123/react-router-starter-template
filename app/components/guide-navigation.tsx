@@ -52,7 +52,7 @@ export function GuideNavigation() {
   <p className="section-intro">Use these related guides to refine your specification before comparing the complete installed price.</p>
   <div className="material-choices">{links.map(([title, href]) => <a className="material-choice" href={href} key={href}><strong>{title}</strong><small>Read guide →</small></a>)}</div>
   <p className="section-intro">Ready to compare your project? Send your kitchen plan and any existing quotation so we can review the material, fabrication and installation together.</p>
-  <a className="button gold" href="/guides/check-my-worktop-quote/#check-my-quote">Compare my worktop plan & quote →</a>
+  <a className="button gold" href="/check-my-quote/">Compare my worktop plan & quote →</a>
   <p><a className="text-link" href="/guides/">Browse all StoneMatch worktop guides →</a></p>
  </div></section>;
 }
