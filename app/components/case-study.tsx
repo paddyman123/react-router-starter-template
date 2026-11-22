@@ -10,11 +10,11 @@ export function ProjectCaseStudy() {
     </div>
     <div className="case-copy">
      <p className="case-kicker">Project 001 · In progress</p>
-     <p>Our first customer came to StoneMatch with a £3,600 worktop quote. We found a £2,200 option, including a full splashback.</p>
+     <p>Our first customer came to StoneMatch with a worktop quote. We found a route about 39% less, including a full splashback.</p>
      <dl className="case-figures">
-      <div><dt>Original quote</dt><dd>£3,600</dd></div>
-      <div><dt>StoneMatch route</dt><dd>£2,200</dd></div>
-      <div><dt>Difference</dt><dd>£1,400</dd></div>
+      <div><dt>Compared with the original quote</dt><dd>About 39% less</dd></div>
+      <div><dt>What was included</dt><dd>Full splashback</dd></div>
+      <div><dt>Status</dt><dd>Installation booked</dd></div>
      </dl>
      <ul className="case-points">
       <li>Full splashback included</li>

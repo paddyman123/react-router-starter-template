@@ -1,3 +1,24 @@
-import { Page } from "../components/site-shell"; import { QuickQuoteCheck } from "../components/quick-quote-check";
-export function meta(){return [{tagName:"link",rel:"canonical",href:"https://stonematch.co.uk/quote-check/"},{title:"Save Money on Your Worktops | StoneMatch"},{name:"description",content:"Send StoneMatch your worktop quote or kitchen plans and see whether we can find a better-value installed option."}]}
-export default function PaidQuoteCheck(){return <Page><section className="page-hero"><div className="shell narrow"><p className="eyebrow">StoneMatch Savings Check</p><h1>Want to see how much<br/><em>you could save?</em></h1><p className="lead">Send us your existing quote and we'll use it as a benchmark to look for a better-value installed route. If your current deal is already strong, we'll tell you.</p><div className="trust"><span>✓ Free savings check</span><span>✓ No obligation</span><span>✓ Already got a good deal? We'll tell you.</span></div></div></section><section className="section enquiry"><div className="shell"><QuickQuoteCheck/></div></section></Page>}
+import { Page } from "../components/site-shell";
+
+export function meta() {
+ return [
+  { title: "Check my quote | StoneMatch" },
+  { name: "description", content: "Send StoneMatch the worktop quote you already hold. This address now continues to the quote check." },
+  { name: "robots", content: "noindex" },
+  { tagName: "link", rel: "canonical", href: "https://stonematch.co.uk/check-my-quote/" },
+  { httpEquiv: "refresh", content: "0;url=/check-my-quote/" },
+ ];
+}
+
+export default function PaidQuoteCheck() {
+ return <Page>
+  <section className="page-hero">
+   <div className="shell narrow">
+    <p className="eyebrow">Quote check</p>
+    <h1>Continue to the<br/><em>quote check.</em></h1>
+    <p className="lead">This address now opens the quote check. It asks for your name, email and project postcode.</p>
+    <a className="button gold" href="/check-my-quote/">Check my quote →</a>
+   </div>
+  </section>
+ </Page>;
+}
